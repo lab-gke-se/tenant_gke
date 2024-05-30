@@ -78,7 +78,7 @@ module "gke" {
   master_authorized_networks = [
     {
       gcp_public_cidrs_access_enabled = true
-      cidr_block                      = "162.124.14.0/24"
+      cidr_block                      = "10.10.10.0/24"
       display_name                    = "VPC"
     },
   ]
