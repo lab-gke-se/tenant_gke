@@ -1,5 +1,5 @@
 module "service_account" {
-  source       = "github.com/capileus/iam//service_account?ref=main"
+  source       = "github.com/lab-gke-se/modules//iam/service_account?ref=main"
   project      = local.projects.prj_dev_tenant_1.project_id
   name         = "gke-cluster"
   display_name = "GKE Cluster Service Account"
