@@ -15,25 +15,13 @@
  */
 
 locals {
-  cluster_type                = "dev-tenant-1"
-  network_project_id          = local.projects["prj_dev_tenant_1"].project_id
-  network_name                = "dev-network"
-  region                      = "europe-west2"
+  cluster_type                = "tenant-gke"
+  region                      = "us-east4"
   zones                       = ["${local.region}-a", "${local.region}-b", "${local.region}-c"]
-  subnet_name                 = "dev-tenant-1"
-  pods_range_name             = "dev-tenant-1-pods"
-  svc_range_name              = "dev-tenant-1-services"
+  subnet_name                 = "tenant-gke"
+  pods_range_name             = "tenant-gke-pods"
+  svc_range_name              = "tenant-gke-services"
   private_endpoint_subnetwork = null
-  create_service_account      = false
-  service_account             = module.service_account.email
-  regional                    = true
-  release_channel             = "REGULAR"
-  http_load_balancing         = true
-  horizontal_pod_autoscaling  = true
-  enable_private_nodes        = true
-  enable_private_endpoint     = true
-  master_ipv4_cidr_block      = null
-  deletion_protection         = false
 }
 
 
@@ -46,13 +34,10 @@ locals {
 # }
 
 module "gke" {
-  //  source  = "terraform-google-modules/kubernetes-engine/google//modules/beta-autopilot-private-cluster"
-  //  version = "~> 30.0"
-
   source = "github.com/lab-gke-se/terraform-google-kubernetes-engine//modules/beta-autopilot-private-cluster"
 
   project_id                 = local.projects.prj_dev_tenant_1.project_id
-  name                       = "${local.cluster_type}-cluster-google-module"
+  name                       = "${local.cluster_type}-cluster"
   region                     = local.region
   zones                      = local.zones
   network                    = local.network_name
@@ -90,3 +75,17 @@ module "gke" {
   depends_on = [module.prj_tenant_1_kms_key.key_id]
 }
 
+moved {
+  from = module.gke_1
+  to   = module.gke
+}
+
+moved {
+  from = module.prj_tenant_1_us_east4_kms_key_ring
+  to   = module.prj_tenant_1_kms_key_ring
+}
+
+moved {
+  from = module.prj_tenant_1_us_east4_kms_key
+  to   = module.prj_tenant_1_kms_key
+}
