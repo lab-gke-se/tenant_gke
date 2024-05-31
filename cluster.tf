@@ -16,14 +16,25 @@
 
 locals {
   cluster_type                = "tenant-gke"
+  network_name                = "dev-network"
+  network_project_id          = local.projects["prj_dev_tenant_1"].project_id
   region                      = "us-east4"
   zones                       = ["${local.region}-a", "${local.region}-b", "${local.region}-c"]
   subnet_name                 = "tenant-gke"
   pods_range_name             = "tenant-gke-pods"
   svc_range_name              = "tenant-gke-services"
   private_endpoint_subnetwork = null
+  create_service_account      = false
+  service_account             = module.service_account.email
+  regional                    = true
+  release_channel             = "REGULAR"
+  http_load_balancing         = true
+  horizontal_pod_autoscaling  = true
+  enable_private_nodes        = true
+  enable_private_endpoint     = true
+  master_ipv4_cidr_block      = null
+  deletion_protection         = false
 }
-
 
 # data "google_client_config" "default" {}
 
