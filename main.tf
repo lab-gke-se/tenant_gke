@@ -18,6 +18,4 @@ locals {
     "container.googleapis.com",
     "compute.googleapis.com"
   ]
-
-  depends_on = [module.prj_tenant_1_kms_key]
 }
