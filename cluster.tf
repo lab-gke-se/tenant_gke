@@ -72,8 +72,10 @@ module "gke" {
   master_authorized_networks = [
     {
       gcp_public_cidrs_access_enabled = true
-      cidr_block                      = "77.101.187.225/32"
-      display_name                    = "Dave's Home"
+      cidr_block                      = "10.10.10.10/32"
+      display_name                    = "Dave's Dummy"
+      //      cidr_block                      = "77.101.187.225/32"
+      //      display_name                    = "Dave's Home"
     },
   ]
 
