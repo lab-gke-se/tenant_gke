@@ -18,9 +18,9 @@ locals {
   cluster_type_1                = "tenant-gke"
   region_1                      = "us-east4"
   zones_1                       = ["${local.region_1}-a", "${local.region_1}-b", "${local.region_1}-c"]
-  subnet_name_1                 = "dev-tenant-1"
-  pods_range_name_1             = "dev-tenant-1-pods"
-  svc_range_name_1              = "dev-tenant-1-services"
+  subnet_name_1                 = "tenant-gke"
+  pods_range_name_1             = "tenant-gke-pods"
+  svc_range_name_1              = "tenant-gke-services"
   private_endpoint_subnetwork_1 = null
 }
 
