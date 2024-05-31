@@ -31,7 +31,7 @@ locals {
   http_load_balancing         = true
   horizontal_pod_autoscaling  = true
   enable_private_nodes        = true
-  enable_private_endpoint     = true
+  enable_private_endpoint     = false
   master_ipv4_cidr_block      = null
   deletion_protection         = false
 }
@@ -73,8 +73,8 @@ module "gke_1" {
   master_authorized_networks = [
     {
       gcp_public_cidrs_access_enabled = true
-      cidr_block                      = "10.10.10.0/24"
-      display_name                    = "VPC"
+      cidr_block                      = "77.101.187.225"
+      display_name                    = "Dave's Home"
     },
   ]
 
