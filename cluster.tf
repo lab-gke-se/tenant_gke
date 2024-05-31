@@ -44,43 +44,43 @@ locals {
 #   cluster_ca_certificate = base64decode(module.gke.ca_certificate)
 # }
 
-# module "gke" {
-#   source = "github.com/lab-gke-se/terraform-google-kubernetes-engine//modules/beta-autopilot-private-cluster"
+module "gke" {
+  source = "github.com/lab-gke-se/terraform-google-kubernetes-engine//modules/beta-autopilot-private-cluster"
 
-#   project_id                 = local.projects.prj_dev_tenant_1.project_id
-#   name                       = "${local.cluster_type}-cluster"
-#   region                     = local.region
-#   zones                      = local.zones
-#   network                    = local.network_name
-#   network_project_id         = local.network_project_id
-#   subnetwork                 = local.subnet_name
-#   ip_range_pods              = local.pods_range_name
-#   ip_range_services          = local.svc_range_name
-#   create_service_account     = local.create_service_account
-#   service_account            = module.service_account.email
-#   regional                   = local.regional
-#   release_channel            = local.release_channel
-#   kubernetes_version         = "1.29.1"
-#   http_load_balancing        = local.http_load_balancing
-#   horizontal_pod_autoscaling = local.horizontal_pod_autoscaling
-#   deletion_protection        = local.deletion_protection
-#   boot_disk_kms_key          = module.prj_tenant_1_kms_key.key_id
-#   enable_private_nodes       = local.enable_private_nodes
-#   enable_private_endpoint    = false
-#   # private_endpoint_subnetwork = local.private_endpoint_subnetwork
+  project_id                 = local.projects.prj_dev_tenant_1.project_id
+  name                       = "${local.cluster_type}-cluster"
+  region                     = local.region
+  zones                      = local.zones
+  network                    = local.network_name
+  network_project_id         = local.network_project_id
+  subnetwork                 = local.subnet_name
+  ip_range_pods              = local.pods_range_name
+  ip_range_services          = local.svc_range_name
+  create_service_account     = local.create_service_account
+  service_account            = module.service_account.email
+  regional                   = local.regional
+  release_channel            = local.release_channel
+  kubernetes_version         = "1.29.1"
+  http_load_balancing        = local.http_load_balancing
+  horizontal_pod_autoscaling = local.horizontal_pod_autoscaling
+  deletion_protection        = local.deletion_protection
+  boot_disk_kms_key          = module.prj_tenant_1_kms_key.key_id
+  enable_private_nodes       = local.enable_private_nodes
+  enable_private_endpoint    = false
+  # private_endpoint_subnetwork = local.private_endpoint_subnetwork
 
-#   master_authorized_networks = [
-#     {
-#       gcp_public_cidrs_access_enabled = true
-#       cidr_block                      = "77.101.187.225/32"
-#       display_name                    = "Dave's Home"
-#     },
-#   ]
+  master_authorized_networks = [
+    {
+      gcp_public_cidrs_access_enabled = true
+      cidr_block                      = "77.101.187.225/32"
+      display_name                    = "Dave's Home"
+    },
+  ]
 
-#   database_encryption = [{
-#     state    = "ENCRYPTED"
-#     key_name = module.prj_tenant_1_kms_key.key_id
-#   }]
+  database_encryption = [{
+    state    = "ENCRYPTED"
+    key_name = module.prj_tenant_1_kms_key.key_id
+  }]
 
-#   depends_on = [module.prj_tenant_1_kms_key.key_id]
-# }
+  depends_on = [module.prj_tenant_1_kms_key.key_id]
+}
