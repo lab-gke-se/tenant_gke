@@ -15,14 +15,14 @@
  */
 
 locals {
-  cluster_type                = "dev-tenant-1"
-  network_project_id          = local.projects["prj_dev_tenant_1"].project_id
+  cluster_type                = "tenant-gke"
   network_name                = "dev-network"
-  region                      = "europe-west2"
+  network_project_id          = local.projects["prj_dev_tenant_1"].project_id
+  region                      = "us-east4"
   zones                       = ["${local.region}-a", "${local.region}-b", "${local.region}-c"]
-  subnet_name                 = "dev-tenant-1"
-  pods_range_name             = "dev-tenant-1-pods"
-  svc_range_name              = "dev-tenant-1-services"
+  subnet_name                 = "tenant-gke"
+  pods_range_name             = "tenant-gke-pods"
+  svc_range_name              = "tenant-gke-services"
   private_endpoint_subnetwork = null
   create_service_account      = false
   service_account             = module.service_account.email
@@ -36,7 +36,6 @@ locals {
   deletion_protection         = false
 }
 
-
 # data "google_client_config" "default" {}
 
 # provider "kubernetes" {
@@ -45,14 +44,11 @@ locals {
 #   cluster_ca_certificate = base64decode(module.gke.ca_certificate)
 # }
 
-module "gke" {
-  //  source  = "terraform-google-modules/kubernetes-engine/google//modules/beta-autopilot-private-cluster"
-  //  version = "~> 30.0"
-
+module "gke_1" {
   source = "github.com/lab-gke-se/terraform-google-kubernetes-engine//modules/beta-autopilot-private-cluster"
 
   project_id                 = local.projects.prj_dev_tenant_1.project_id
-  name                       = "${local.cluster_type}-cluster-google-module"
+  name                       = "${local.cluster_type}-cluster"
   region                     = local.region
   zones                      = local.zones
   network                    = local.network_name
@@ -68,7 +64,7 @@ module "gke" {
   http_load_balancing        = local.http_load_balancing
   horizontal_pod_autoscaling = local.horizontal_pod_autoscaling
   deletion_protection        = local.deletion_protection
-  boot_disk_kms_key          = module.prj_tenant_1_kms_key.key_id
+  boot_disk_kms_key          = module.prj_tenant_1_us_east4_kms_key.key_id
 
   enable_private_nodes    = local.enable_private_nodes
   enable_private_endpoint = local.enable_private_endpoint
@@ -84,9 +80,23 @@ module "gke" {
 
   database_encryption = [{
     state    = "ENCRYPTED"
-    key_name = module.prj_tenant_1_kms_key.key_id
+    key_name = module.prj_tenant_1_us_east4_kms_key.key_id
   }]
 
-  depends_on = [module.prj_tenant_1_kms_key.key_id]
+  depends_on = [module.prj_tenant_1_us_east4_kms_key.key_id]
 }
 
+# moved {
+#   from = module.gke_1
+#   to   = module.gke
+# }
+
+# moved {
+#   from = module.prj_tenant_1_us_east4_kms_key_ring
+#   to   = module.prj_tenant_1_kms_key_ring
+# }
+
+# moved {
+#   from = module.prj_tenant_1_us_east4_kms_key
+#   to   = module.prj_tenant_1_kms_key
+# }
