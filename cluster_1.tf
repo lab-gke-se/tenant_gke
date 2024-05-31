@@ -15,25 +15,13 @@
  */
 
 locals {
-  cluster_type                = "dev-tenant-1"
-  network_project_id          = local.projects["prj_dev_tenant_1"].project_id
-  network_name                = "dev-network"
-  region                      = "europe-west2"
-  zones                       = ["${local.region}-a", "${local.region}-b", "${local.region}-c"]
-  subnet_name                 = "dev-tenant-1"
-  pods_range_name             = "dev-tenant-1-pods"
-  svc_range_name              = "dev-tenant-1-services"
-  private_endpoint_subnetwork = null
-  create_service_account      = false
-  service_account             = module.service_account.email
-  regional                    = true
-  release_channel             = "REGULAR"
-  http_load_balancing         = true
-  horizontal_pod_autoscaling  = true
-  enable_private_nodes        = true
-  enable_private_endpoint     = true
-  master_ipv4_cidr_block      = null
-  deletion_protection         = false
+  cluster_type_1                = "tenant-gke"
+  region_1                      = "us-east4"
+  zones_1                       = ["${local.region_1}-a", "${local.region_1}-b", "${local.region_1}-c"]
+  subnet_name_1                 = "dev-tenant-1"
+  pods_range_name_1             = "dev-tenant-1-pods"
+  svc_range_name_1              = "dev-tenant-1-services"
+  private_endpoint_subnetwork_1 = null
 }
 
 
@@ -45,21 +33,18 @@ locals {
 #   cluster_ca_certificate = base64decode(module.gke.ca_certificate)
 # }
 
-module "gke" {
-  //  source  = "terraform-google-modules/kubernetes-engine/google//modules/beta-autopilot-private-cluster"
-  //  version = "~> 30.0"
-
+module "gke_1" {
   source = "github.com/lab-gke-se/terraform-google-kubernetes-engine//modules/beta-autopilot-private-cluster"
 
   project_id                 = local.projects.prj_dev_tenant_1.project_id
-  name                       = "${local.cluster_type}-cluster-google-module"
-  region                     = local.region
-  zones                      = local.zones
+  name                       = "${local.cluster_type_1}-cluster"
+  region                     = local.region_1
+  zones                      = local.zones_1
   network                    = local.network_name
   network_project_id         = local.network_project_id
-  subnetwork                 = local.subnet_name
-  ip_range_pods              = local.pods_range_name
-  ip_range_services          = local.svc_range_name
+  subnetwork                 = local.subnet_name_1
+  ip_range_pods              = local.pods_range_name_1
+  ip_range_services          = local.svc_range_name_1
   create_service_account     = local.create_service_account
   service_account            = module.service_account.email
   regional                   = local.regional
