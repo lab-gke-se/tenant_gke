@@ -44,7 +44,7 @@ locals {
 #   cluster_ca_certificate = base64decode(module.gke.ca_certificate)
 # }
 
-module "gke_1" {
+module "gke" {
   source = "github.com/lab-gke-se/terraform-google-kubernetes-engine//modules/beta-autopilot-private-cluster"
 
   project_id                 = local.projects.prj_dev_tenant_1.project_id
@@ -64,7 +64,7 @@ module "gke_1" {
   http_load_balancing        = local.http_load_balancing
   horizontal_pod_autoscaling = local.horizontal_pod_autoscaling
   deletion_protection        = local.deletion_protection
-  boot_disk_kms_key          = module.prj_tenant_1_us_east4_kms_key.key_id
+  boot_disk_kms_key          = module.prj_tenant_1_kms_key.key_id
 
   enable_private_nodes    = local.enable_private_nodes
   enable_private_endpoint = local.enable_private_endpoint
@@ -80,23 +80,8 @@ module "gke_1" {
 
   database_encryption = [{
     state    = "ENCRYPTED"
-    key_name = module.prj_tenant_1_us_east4_kms_key.key_id
+    key_name = module.prj_tenant_1_kms_key.key_id
   }]
 
-  depends_on = [module.prj_tenant_1_us_east4_kms_key.key_id]
+  depends_on = [module.prj_tenant_1_kms_key.key_id]
 }
-
-# moved {
-#   from = module.gke_1
-#   to   = module.gke
-# }
-
-# moved {
-#   from = module.prj_tenant_1_us_east4_kms_key_ring
-#   to   = module.prj_tenant_1_kms_key_ring
-# }
-
-# moved {
-#   from = module.prj_tenant_1_us_east4_kms_key
-#   to   = module.prj_tenant_1_kms_key
-# }
