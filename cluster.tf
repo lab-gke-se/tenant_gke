@@ -65,9 +65,8 @@ module "gke" {
   horizontal_pod_autoscaling = local.horizontal_pod_autoscaling
   deletion_protection        = local.deletion_protection
   boot_disk_kms_key          = module.prj_tenant_1_kms_key.key_id
-
-  enable_private_nodes    = local.enable_private_nodes
-  enable_private_endpoint = local.false
+  enable_private_nodes       = local.enable_private_nodes
+  enable_private_endpoint    = false
   # private_endpoint_subnetwork = local.private_endpoint_subnetwork
 
   master_authorized_networks = [
