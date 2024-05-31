@@ -31,9 +31,9 @@ locals {
   http_load_balancing         = true
   horizontal_pod_autoscaling  = true
   enable_private_nodes        = true
-  enable_private_endpoint     = false
-  master_ipv4_cidr_block      = null
-  deletion_protection         = false
+  //  enable_private_endpoint     = true
+  master_ipv4_cidr_block = null
+  deletion_protection    = false
 }
 
 # data "google_client_config" "default" {}
@@ -67,7 +67,7 @@ module "gke" {
   boot_disk_kms_key          = module.prj_tenant_1_kms_key.key_id
 
   enable_private_nodes    = local.enable_private_nodes
-  enable_private_endpoint = local.enable_private_endpoint
+  enable_private_endpoint = local.false
   # private_endpoint_subnetwork = local.private_endpoint_subnetwork
 
   master_authorized_networks = [
