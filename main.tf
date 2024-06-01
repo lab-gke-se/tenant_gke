@@ -58,8 +58,8 @@ locals {
     master_authorized_networks = [
       {
         # gcp_public_cidrs_access_enabled = true
-        cidr_block   = "10.10.10.10/32"
-        display_name = "Private IP"
+        cidr_block   = "10.10.1.0/25" // subnet range for VM
+        display_name = "tenant-gke-private"
       }
     ]
   }
