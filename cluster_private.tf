@@ -22,7 +22,7 @@
 #   cluster_ca_certificate = base64decode(module.gke.ca_certificate)
 # }
 
-module "gke" {
+module "gke_private" {
   source = "github.com/lab-gke-se/terraform-google-kubernetes-engine//modules/beta-autopilot-private-cluster"
 
   project_id                 = local.projects.prj_dev_tenant_1.project_id
