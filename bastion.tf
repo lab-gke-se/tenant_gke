@@ -17,7 +17,7 @@ resource "google_compute_instance" "bastion" {
 
   project      = local.projects.prj_dev_tenant_1.project_id
   name         = "bastion"
-  zone         = "us-east5-a"
+  zone         = "us-east4-a"
   machine_type = "e2-micro"
 
   network_interface {
