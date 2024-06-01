@@ -46,16 +46,7 @@ module "gke_private" {
   enable_private_nodes       = local.enable_private_nodes
   enable_private_endpoint    = local.cluster_private.enable_private_endpoint
   # private_endpoint_subnetwork = local.private_endpoint_subnetwork
-
-  master_authorized_networks = [
-    {
-      # gcp_public_cidrs_access_enabled = true
-      # cidr_block                      = "10.10.10.10/32"
-      # display_name                    = "Dave's Dummy"
-      cidr_block   = "77.101.187.225/32"
-      display_name = "Dave's Home"
-    },
-  ]
+  master_authorized_networks = local.cluster_private.master_authorized_networks
 
   database_encryption = [{
     state    = "ENCRYPTED"
