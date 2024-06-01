@@ -52,8 +52,8 @@ locals {
   cluster_private = {
     cluster_type            = "tenant-gke-private"
     subnet_name             = "tenant-gke-private"
-    pods_range_name         = "tenant-gke-private-pods"
-    svc_range_name          = "tenant-gke-private-services"
+    pods_range_name         = "tenant-gke-pods"
+    svc_range_name          = "tenant-gke-services"
     enable_private_endpoint = true
     master_authorized_networks = [
       {
