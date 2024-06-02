@@ -13,6 +13,22 @@ resource "google_compute_firewall" "allow_ingress" {
   }
 }
 
+resource "google_compute_router" "egress_router" {
+  name    = "egress-router"
+  project = local.projects.prj_dev_tenant_1.project_id
+  network = local.network_name
+  region  = "us-east4"
+}
+
+resource "google_compute_router_nat" "nat" {
+  name                               = "nat"
+  project                            = local.projects.prj_dev_tenant_1.project_id
+  router                             = google_compute_router.egress_router.name
+  region                             = google_compute_router.egress_router.region
+  nat_ip_allocate_option             = "AUTO_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
+}
+
 resource "google_compute_instance" "bastion" {
 
   project      = local.projects.prj_dev_tenant_1.project_id
