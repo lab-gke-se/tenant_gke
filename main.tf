@@ -55,6 +55,11 @@ locals {
         # gcp_public_cidrs_access_enabled = true
         cidr_block   = "162.124.14.0/24"
         display_name = "Proxy Server"
+      },
+      {
+        # gcp_public_cidrs_access_enabled = true
+        cidr_block   = "10.10.1.0/25"
+        display_name = "Bastion"
       }
     ]
   }
@@ -69,7 +74,7 @@ locals {
       {
         # gcp_public_cidrs_access_enabled = true
         cidr_block   = "10.10.1.0/25" // subnet range for VM
-        display_name = "tenant-gke-private"
+        display_name = "Bastion"
       }
     ]
   }
