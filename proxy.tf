@@ -3,7 +3,7 @@ resource "google_compute_instance" "proxy" {
   project      = local.projects.prj_dev_tenant_1.project_id
   name         = "proxy"
   zone         = "us-east4-a"
-  machine_type = "e2-micro"
+  machine_type = "e2-standard-2"
 
   network_interface {
     network            = local.network_name
