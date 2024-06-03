@@ -45,6 +45,11 @@ locals {
         # gcp_public_cidrs_access_enabled = true
         cidr_block   = "77.101.187.225/32"
         display_name = "Dave's Home"
+      },
+      {
+        # gcp_public_cidrs_access_enabled = true
+        cidr_block   = "217.8.23.33/32"
+        display_name = "Himanshu's Home"
       }
     ]
   }
