@@ -91,11 +91,15 @@ locals {
       pods_range_name         = "tenant-gke-pods"
       svc_range_name          = "tenant-gke-services"
       enable_private_endpoint = true
+      # gcp_public_cidrs_access_enabled = true
       master_authorized_networks = [
         {
-          # gcp_public_cidrs_access_enabled = true
-          cidr_block   = "10.10.1.0/25" // subnet range for VM
+          cidr_block   = "10.10.1.0/25"
           display_name = "Bastion"
+        },
+        {
+          cidr_block   = "162.124.14.0/24"
+          display_name = "Proxy Server"
         }
       ]
     }
