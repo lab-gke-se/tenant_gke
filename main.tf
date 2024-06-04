@@ -75,6 +75,11 @@ locals {
         # gcp_public_cidrs_access_enabled = true
         cidr_block   = "10.10.1.0/25" // subnet range for VM
         display_name = "Bastion"
+      },
+      {
+        # gcp_public_cidrs_access_enabled = true
+        cidr_block   = "77.101.187.225/32"
+        display_name = "Dave's Home"
       }
     ]
   }
