@@ -51,11 +51,11 @@ locals {
         cidr_block   = "217.8.23.33/32"
         display_name = "Himanshu's Home"
       },
-      {
-        # gcp_public_cidrs_access_enabled = true
-        cidr_block   = "162.124.14.0/24"
-        display_name = "Proxy Server"
-      },
+      # {
+      #   # gcp_public_cidrs_access_enabled = true
+      #   cidr_block   = "162.124.14.0/24"
+      #   display_name = "Proxy Server"
+      # },
       {
         # gcp_public_cidrs_access_enabled = true
         cidr_block   = "10.10.1.0/25"
