@@ -50,6 +50,16 @@ locals {
         # gcp_public_cidrs_access_enabled = true
         cidr_block   = "217.8.23.33/32"
         display_name = "Himanshu's Home"
+      },
+      # {
+      #   # gcp_public_cidrs_access_enabled = true
+      #   cidr_block   = "162.124.14.0/24"
+      #   display_name = "Proxy Server"
+      # },
+      {
+        # gcp_public_cidrs_access_enabled = true
+        cidr_block   = "10.10.1.0/25"
+        display_name = "Bastion"
       }
     ]
   }
@@ -64,8 +74,13 @@ locals {
       {
         # gcp_public_cidrs_access_enabled = true
         cidr_block   = "10.10.1.0/25" // subnet range for VM
-        display_name = "tenant-gke-private"
-      }
+        display_name = "Bastion"
+      },
+      # {
+      #   # gcp_public_cidrs_access_enabled = true
+      #   cidr_block   = "77.101.187.225/32"
+      #   display_name = "Dave's Home"
+      # }
     ]
   }
 
@@ -78,4 +93,26 @@ locals {
   cluster_configs = {
     for filename in local.cluster_files : replace(filename, ".yaml", "") => yamldecode(templatefile("${path.module}/config/clusters/${filename}", local.substitutions))
   }
+
+  # clusters = {
+  #   cluster_private_1 = {
+  #     cluster_name            = "tenant-gke-private-1"
+  #     subnet_name             = "tenant-gke-1"
+  #     pods_range_name         = "tenant-gke-pods"
+  #     svc_range_name          = "tenant-gke-services"
+  #     enable_private_endpoint = true
+  #     # gcp_public_cidrs_access_enabled = true
+  #     master_authorized_networks = [
+  #       {
+  #         cidr_block   = "10.10.1.0/25"
+  #         display_name = "Bastion"
+  #       },
+  #       # {
+  #       #   cidr_block   = "162.124.14.0/24"
+  #       #   display_name = "Proxy Server"
+  #       # }
+  #     ]
+  #   }
+  # }
+
 }
