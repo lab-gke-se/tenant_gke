@@ -69,4 +69,13 @@ locals {
     ]
   }
 
+  substitutions = {
+    kms_key         = module.prj_tenant_1_kms_key.key_id
+    service_account = module.service_account.email
+  }
+
+  cluster_files = fileset("${path.module}/config/clusters", "*.yaml")
+  cluster_configs = {
+    for filename in local.cluster_files : replace(filename, ".yaml", "") => yamldecode(templatefile("${path.module}/config/clusters/${filename}", local.substitutions))
+  }
 }
