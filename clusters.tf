@@ -1,6 +1,7 @@
+# Temp
 module "cluster" {
   for_each = local.cluster_configs
-  source   = "github.com/lab-gke-se/modules//gke/cluster?ref=feature/gke-module"
+  source   = "github.com/lab-gke-se/modules//gke/cluster?ref=gke-module"
 
   project                           = local.projects.prj_dev_tenant_1.project_id
   name                              = each.value.name
