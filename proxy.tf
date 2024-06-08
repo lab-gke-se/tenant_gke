@@ -7,7 +7,7 @@ resource "google_compute_instance" "proxy" {
   allow_stopping_for_update = true
 
   network_interface {
-    network            = local.network_name
+    network            = local.cluster_configs["private"].network
     subnetwork         = "proxy"
     subnetwork_project = local.projects.prj_dev_tenant_1.project_id
     stack_type         = "IPV4_ONLY"

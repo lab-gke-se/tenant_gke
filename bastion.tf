@@ -2,8 +2,8 @@ resource "google_compute_firewall" "allow_ingress" {
   name          = "dev-tenant-1-ai-iap"
   description   = "IAP ingress to ssh"
   direction     = "INGRESS"
-  network       = local.network_name
   project       = local.projects.prj_dev_tenant_1.project_id
+  network       = local.cluster_configs["private"].network
   source_ranges = ["35.235.240.0/20"]
   disabled      = false
   priority      = 1000
@@ -16,7 +16,7 @@ resource "google_compute_firewall" "allow_ingress" {
 resource "google_compute_router" "egress_router" {
   name    = "egress-router"
   project = local.projects.prj_dev_tenant_1.project_id
-  network = local.network_name
+  network = local.cluster_configs["private"].network
   region  = "us-east4"
 }
 
@@ -37,8 +37,8 @@ resource "google_compute_instance" "bastion" {
   machine_type = "e2-micro"
 
   network_interface {
-    network            = local.network_name
-    subnetwork         = local.cluster_private.subnet_name
+    network            = local.cluster_configs["private"].network
+    subnetwork         = local.cluster_configs["private"].subnetwork
     subnetwork_project = local.projects.prj_dev_tenant_1.project_id
     stack_type         = "IPV4_ONLY"
   }
