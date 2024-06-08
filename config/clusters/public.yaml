@@ -2,7 +2,13 @@ name: tenant-gke-cluster
 description: Private Autopilot Cluster with Public Endpoint
 autopilot:
   enabled: true
-  
+
+location: us-east4
+locations:
+- us-east4-a
+- us-east4-b
+- us-east4-c
+
 network: projects/lab-gke-se/global/networks/dev-network
 subnetwork: projects/lab-gke-se/regions/us-east4/subnetworks/tenant-gke
 
@@ -49,6 +55,43 @@ databaseEncryption:
   keyName: ${kms_key}
   state: ENCRYPTED
 
+loggingConfig:
+  componentConfig:
+    enableComponents:
+    # Default  
+    - SYSTEM_COMPONENTS
+    - WORKLOADS
+    # Additional 
+    - CONTROLLER_MANAGER
+    - SCHEDULER
+    - APISERVER
+loggingService: logging.googleapis.com/kubernetes
+
+monitoringConfig:
+  advancedDatapathObservabilityConfig:
+    enableMetrics: true
+  componentConfig:
+    enableComponents:
+    - SYSTEM_COMPONENTS
+    - DAEMONSET
+    - DEPLOYMENT
+    - STATEFULSET
+    - STORAGE
+    - HPA
+    - POD
+  managedPrometheusConfig:
+    enabled: true
+monitoringService: monitoring.googleapis.com/kubernetes
+
+maintenancePolicy:
+  resourceVersion: ce912209
+  window:
+    dailyMaintenanceWindow:
+      duration: PT4H0M0S
+      startTime: 05:00
+
+# Everything below here is default or output only
+
 binaryAuthorization: {}
 clusterIpv4Cidr: 240.0.64.0/19
 createTime: '2024-05-31T19:54:46+00:00'
@@ -84,41 +127,9 @@ instanceGroupUrls:
 - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-cluster-pool-6-85a6cd2b-grp
 labelFingerprint: a9dc16a7
 legacyAbac: {}
-location: us-east4
-locations:
-- us-east4-a
-- us-east4-b
-- us-east4-c
-loggingConfig:
-  componentConfig:
-    enableComponents:
-    - SYSTEM_COMPONENTS
-    - WORKLOADS
-loggingService: logging.googleapis.com/kubernetes
-maintenancePolicy:
-  resourceVersion: ce912209
-  window:
-    dailyMaintenanceWindow:
-      duration: PT4H0M0S
-      startTime: 05:00
 masterAuth:
   clientCertificateConfig: {}
   clusterCaCertificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMRENDQXBTZ0F3SUJBZ0lRVFRrTWQwWVMrSnpIU2F1VGNaMHNHakFOQmdrcWhraUc5dzBCQVFzRkFEQXYKTVMwd0t3WURWUVFERXlRMlpqa3pPRGt4WkMwNE56UmlMVFJoWVRjdFlUazVOUzFrWm1NMU9EWTFOREJsWXpNdwpJQmNOTWpRd05UTXhNVGcxTkRRMldoZ1BNakExTkRBMU1qUXhPVFUwTkRaYU1DOHhMVEFyQmdOVkJBTVRKRFptCk9UTTRPVEZrTFRnM05HSXROR0ZoTnkxaE9UazFMV1JtWXpVNE5qVTBNR1ZqTXpDQ0FhSXdEUVlKS29aSWh2Y04KQVFFQkJRQURnZ0dQQURDQ0FZb0NnZ0dCQU5hRVZsOFg2S0poR3hMeGNiVVdhWFdLK0c4VkozRVZ3RFN3ZDFLVQpJc0dkS1QrMmQyR0t1d0NUcXRqb2NZRDB3eTNQV3dHTWRzd29xV2ZiandRdFlIL214Tm55S0lUeGNiU0dsaVBiClhCcHZjQUg5OVRzVnN6RDlubTFLOTZITmoyMDVOb0c0WUpqUHRTZjZVWk51UXU0MmQ0ZjRFdEhaaGlLczkwSVkKUXpGLzJGWXRNTHhieFBGYi9HTTV2TjlJYjdDZmRYeTRmMmlMMGtESjFRbmMvWU16cWZLeWY2U08yQ2tnOWlDRApHd1JvR2xFbTZQTWNlU1NjQ25qdDA4MjdHejBHbVUwSnAxT1ZyQWJXcGZ5RHloK0czalZuOTFXSTFTTExPejBUCm9KR1dtNk5FUFp3bEdMTzRhUXJZNGRUcC9JODhyRTZQSm5iSDF2ZXhRYkpTVHpVemxPamVqNDcyWkpValhIV04KSHpDNVR0YjBWZjY4bE9rbkljeGlwd0RKeEd3YTg4QjZhbGZPRkxrdDNGU3hhSVM1R3Zyc2FRUEFpcmN2d0FVdQp1M3pvUjkrcnZTTG1PNEJCb01HM01RUHdMVkhtNy9FeUpwTE5UWGE2T2c3TkRXa1AwWWcwZ0lDRVlleEM4Q2JhCmMyZmFCYUVrbEk0NUFDbFRxV2dHRHZKYUx3SURBUUFCbzBJd1FEQU9CZ05WSFE4QkFmOEVCQU1DQWdRd0R3WUQKVlIwVEFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVU0YVpKWmJOTWRoVWVONGtLNUpPbTE2clhSQzB3RFFZSgpLb1pJaHZjTkFRRUxCUUFEZ2dHQkFHTVdJaWxmYUpXR2JUUUROMTJzc3B3c2pOY3djNUd6MGZQUUVKYWZ0WWFSCjJ2cE1mNEcrNDFnb0Z6TU5yaG5EVnFQNkQ2cjNiSzJRbWo5czlQZzV3Q2lNMVZ2NXNNR1RJbjg5VWV1MS9iVkkKeitkVmI1UFE0R1ZZMUZxK084M0szWXBqaWdtSTl2M2ZpN2I1YldxNEJSNnM3OEp3RlJlc2dvRzB6RXhGNWRUOQo4bmpFMHZxNFYwalAzcEM3ODlMbXdOSHlvZXlGMmI0R3dPdFlOREIxcEg5MUlYUEdzOGd1dkl6dFlyVVpUamUzCnA2MkhLcW9ndmJpcVM2YnE2dDEwcUtmSFk1ZTRqZ29hMGV5c0tWZ1UxRTBmR0ZRQktSbXcva2t5VzF3WmovbTUKQ0gvT3AvSFlEZ2VVZVU4bEd4Z0FGeEFqZXRkR2g4OWhxd1RDaUJER254U29FamVBYkFZaE5xbmRPTFZoNE9ORQpwWlhLeWFBcGZXREFubW1wbDU3V2dVcE5jZXdqQlN0YzZaQmQyTUYzeEdCZmFWKzV3bmJiYk14YVdzUHdvZkxOCkJSWWtsZDhhZE94d2YzVjBwL3VpK1NyZWJjUVROM2swR0N5NHc2UFJlMm9DekxVcmFsWGNqR2kxV1I2OWFHbWUKaVJ4Yk5hM0ZHa2tTYzM3MHdaWFVTUT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
-monitoringConfig:
-  advancedDatapathObservabilityConfig:
-    enableMetrics: true
-  componentConfig:
-    enableComponents:
-    - SYSTEM_COMPONENTS
-    - DAEMONSET
-    - DEPLOYMENT
-    - STATEFULSET
-    - STORAGE
-    - HPA
-    - POD
-  managedPrometheusConfig:
-    enabled: true
-monitoringService: monitoring.googleapis.com/kubernetes
 networkConfig:
   datapathProvider: ADVANCED_DATAPATH
   defaultSnatStatus: {}

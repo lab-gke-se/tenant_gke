@@ -1,6 +1,6 @@
 module "cluster" {
   for_each = local.cluster_configs
-  source   = "github.com/lab-gke-se/modules//gke/cluster?ref=main"
+  source   = "github.com/lab-gke-se/modules//gke/cluster"
 
   project                           = local.projects.prj_dev_tenant_1.project_id
   name                              = each.value.name
@@ -13,25 +13,11 @@ module "cluster" {
   ip_allocation_policy              = each.value.ipAllocationPolicy
   cluster_autoscaling               = each.value.autoscaling
   release_channel                   = each.value.releaseChannel.channel
-  kubernetes_version                = "1.29.1"
+  kubernetes_version                = "latest"
   addons_config                     = each.value.addonsConfig
   private_cluster_config            = each.value.privateClusterConfig
   master_authorized_networks_config = each.value.masterAuthorizedNetworksConfig
   database_encryption               = each.value.databaseEncryption
+  maintenance_policy                = each.value.maintenancePolicy
+  logging_config                    = each.value.loggingConfig
 }
-
-moved {
-  from = module.gke.google_container_cluster.primary
-  to   = module.cluster["public"].google_container_cluster.primary
-}
-
-moved {
-  from = module.gke_private.google_container_cluster.primary
-  to   = module.cluster["private"].google_container_cluster.primary
-}
-
-moved {
-  from = module.gke_private_1["cluster_private_1"].google_container_cluster.primary
-  to   = module.cluster["private_1"].google_container_cluster.primary
-}
-
