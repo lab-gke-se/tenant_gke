@@ -1,5 +1,5 @@
 module "storage_bucket" {
-  source = "../modules/storage/bucket"
+  source = "github.com/lab-gke-se/modules//storage/bucket?ref=main"
 
   name                = "dev-tenant-1-bucket"
   project             = "lab-gke-se"
