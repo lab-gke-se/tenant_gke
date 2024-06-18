@@ -28,7 +28,9 @@ releaseChannel:
   channel: REGULAR
 
 addonsConfig:
-  horizontalPodAutoscaling: {}
+  horizontalPodAutoscaling: {
+    disabled: true
+  }
   httpLoadBalancing: {}
 
 autoscaling:
@@ -45,6 +47,10 @@ masterAuthorizedNetworksConfig:
     displayName: Himanshu's Home
   - cidrBlock: 10.10.1.0/25
     displayName: Bastion
+  - cidrBlock: 10.10.2.0/24
+    displayName: vdi
+  - cidrBlock: 161.124.14.0/24
+    displayName: pupi
   - cidrBlock: 77.101.187.225/32
     displayName: Dave's Home
   enabled: true
