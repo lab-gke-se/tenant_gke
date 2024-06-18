@@ -1,12 +1,11 @@
 # Temp
 module "cluster" {
   for_each = local.cluster_configs
-  source   = "github.com/lab-gke-se/modules//gke/cluster?ref=gke-module"
+  source   = "github.com/lab-gke-se/modules//gke/cluster?ref=main"
 
   project                           = local.projects.prj_dev_tenant_1.project_id
   name                              = each.value.name
   autopilot                         = try(each.value.autopilot.enabled, false)
-  deletion_protection               = local.deletion_protection
   location                          = each.value.location
   node_locations                    = each.value.locations
   network                           = each.value.network
@@ -21,4 +20,5 @@ module "cluster" {
   database_encryption               = each.value.databaseEncryption
   maintenance_policy                = each.value.maintenancePolicy
   logging_config                    = each.value.loggingConfig
+  deletion_protection               = local.deletion_protection
 }
