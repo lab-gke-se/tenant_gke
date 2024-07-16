@@ -1,4 +1,4 @@
-name: tenant-gke-cluster-usc1
+name: tenant-gke-cluster
 description: Private Autopilot Cluster with Public Endpoint
 autopilot:
   enabled: true
