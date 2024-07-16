@@ -53,6 +53,8 @@ masterAuthorizedNetworksConfig:
     displayName: pupi
   - cidrBlock: 77.101.187.225/32
     displayName: Dave's Home
+  - cidrBlock: 176.26.156.96/32
+    displayName: Vino's Home
   enabled: true
   gcpPublicCidrsAccessEnabled: false
 
