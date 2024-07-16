@@ -19,15 +19,6 @@ locals {
     "compute.googleapis.com"
   ]
 
-   prj_dev_tenant_2_services = [
-    "pubsub.googleapis.com",
-    "artifactregistry.googleapis.com",
-    "storage.googleapis.com",
-    "cloudfunctions.googleapis.com",
-    "container.googleapis.com",
-    "compute.googleapis.com"
-  ]
-
   deletion_protection = false
 
   substitutions = {
