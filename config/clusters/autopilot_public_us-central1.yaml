@@ -1,0 +1,102 @@
+name: tenant-gke-cluster
+description: Private Autopilot Cluster with Public Endpoint
+autopilot:
+  enabled: true
+
+location: us-central1
+locations:
+- us-central1-a
+- us-central1-b
+- us-central1-c
+- us-central1-f
+
+network: projects/lab-gke-se/global/networks/dev-network
+subnetwork: projects/lab-gke-se/regions/us-central1/subnetworks/tenant-gke-us-central1
+
+ipAllocationPolicy:
+  clusterSecondaryRangeName: tenant-gke-pods
+  servicesSecondaryRangeName: tenant-gke-services
+  stackType: IPV4
+  useIpAliases: true
+
+privateClusterConfig:
+  enablePrivateEndpoint: false
+  enablePrivateNodes: true
+  masterGlobalAccessConfig:
+    enabled: true
+
+releaseChannel:
+  channel: REGULAR
+
+addonsConfig:
+  horizontalPodAutoscaling: {
+    disabled: true
+  }
+  httpLoadBalancing: {}
+
+autoscaling:
+  autoprovisioningNodePoolDefaults:
+    bootDiskKmsKey: ${kms_key_prj_tenant_2}
+    serviceAccount: ${service_account}
+
+verticalPodAutoscaling:
+  enabled: true
+
+masterAuthorizedNetworksConfig:
+  cidrBlocks:
+  - cidrBlock: 217.8.23.33/32
+    displayName: Himanshu's Home
+  - cidrBlock: 10.10.1.0/25
+    displayName: Bastion
+  - cidrBlock: 10.10.2.0/24
+    displayName: vdi
+  - cidrBlock: 161.124.14.0/24
+    displayName: pupi
+  - cidrBlock: 77.101.187.225/32
+    displayName: Dave's Home
+  - cidrBlock: 176.26.156.96/32
+    displayName: Vino's Home
+  enabled: true
+  gcpPublicCidrsAccessEnabled: false
+
+databaseEncryption:
+  currentState: CURRENT_STATE_ENCRYPTED
+  keyName: ${kms_key_prj_tenant_2}
+  state: ENCRYPTED
+
+loggingConfig:
+  componentConfig:
+    enableComponents:
+    # Default  
+    - SYSTEM_COMPONENTS
+    - WORKLOADS
+    # Additional 
+    - CONTROLLER_MANAGER
+    - SCHEDULER
+    - APISERVER
+loggingService: logging.googleapis.com/kubernetes
+
+monitoringConfig:
+  advancedDatapathObservabilityConfig:
+    enableMetrics: true
+  componentConfig:
+    enableComponents:
+    - SYSTEM_COMPONENTS
+    - DAEMONSET
+    - DEPLOYMENT
+    - STATEFULSET
+    - STORAGE
+    - HPA
+    - POD
+  managedPrometheusConfig:
+    enabled: true
+monitoringService: monitoring.googleapis.com/kubernetes
+
+maintenancePolicy:
+  resourceVersion: ce912209
+  window:
+    dailyMaintenanceWindow:
+      duration: PT4H0M0S
+      startTime: 05:00
+
+# Everything below here is default or output only
