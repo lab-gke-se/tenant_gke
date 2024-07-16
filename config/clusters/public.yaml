@@ -35,7 +35,7 @@ addonsConfig:
 
 autoscaling:
   autoprovisioningNodePoolDefaults:
-    bootDiskKmsKey: ${kms_key}
+    bootDiskKmsKey: ${kms_key_prj_tenant_1}
     serviceAccount: ${service_account}
 
 verticalPodAutoscaling:
@@ -58,7 +58,7 @@ masterAuthorizedNetworksConfig:
 
 databaseEncryption:
   currentState: CURRENT_STATE_ENCRYPTED
-  keyName: ${kms_key}
+  keyName: ${kms_key_prj_tenant_1}
   state: ENCRYPTED
 
 loggingConfig:
