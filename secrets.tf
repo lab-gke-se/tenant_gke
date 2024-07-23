@@ -12,6 +12,8 @@ resource "google_secret_manager_secret" "certificates" {
       }
     }
   }
+
+  depends_on = [module.prj_tenant_1_kms_key]
 }
 
 resource "google_secret_manager_secret_version" "version" {
