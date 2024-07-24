@@ -185,7 +185,7 @@ nodePoolDefaults:
         - fqdns:
           - test.example.com
           gcpSecretManagerCertificateConfig:
-            secretUri: projects/52991355109/secrets/certificates/versions/1
+            secretURI: projects/52991355109/secrets/certificates/versions/1
         enabled: true
     gcfsConfig:
       enabled: true
