@@ -22,3 +22,25 @@ module "cluster" {
   logging_config                    = each.value.loggingConfig
   deletion_protection               = local.deletion_protection
 }
+
+resource "local_file" "containerd_config" {
+  for_each = { for name, config in local.cluster_configs : name => config if try(config.nodePoolDefaults.nodeConfigDefaults.containerdConfig.privateRegistryAccessConfig, null) != null }
+
+  content  = yamlencode(each.value.nodePoolDefaults.nodeConfigDefaults.containerdConfig)
+  filename = "${path.module}/config/clusters/containerd-config/${each.value.name}.yaml"
+}
+
+resource "null_resource" "run_command" {
+  for_each = { for name, config in local.cluster_configs : name => config if try(config.nodePoolDefaults.nodeConfigDefaults.containerdConfig.privateRegistryAccessConfig, null) != null }
+
+  depends_on = [module.cluster]
+
+  provisioner "local-exec" {
+    when    = create
+    command = <<-EOT
+      gcloud container clusters update ${each.value.name} --location=${each.value.location} --containerd-config-from-file="${local_file.containerd_config[each.key].filename}"    
+    EOT
+  }
+
+}
+
