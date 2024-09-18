@@ -2,11 +2,23 @@ name: tenant-gke-cluster-usc1
 description: Private Autopilot Cluster with Public Endpoint
 
 addonsConfig:
-  horizontalPodAutoscaling: {
-    disabled: true
-  }
+  dnsCacheConfig:
+    enabled: true
+  gcePersistentDiskCsiDriverConfig:
+    enabled: true
+  gcpFilestoreCsiDriverConfig:
+    enabled: true
+  gcsFuseCsiDriverConfig:
+    enabled: true
+  horizontalPodAutoscaling: {}
   httpLoadBalancing: {}
-
+  kubernetesDashboard:
+    disabled: true
+  networkPolicyConfig:
+    disabled: true
+  statefulHaConfig:
+    enabled: true
+    
 autopilot:
   enabled: true
 
