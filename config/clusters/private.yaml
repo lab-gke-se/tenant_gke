@@ -51,8 +51,8 @@ controlPlaneEndpointsConfig:
   enhancedIngress:
     endpoint: gke-c99f588ea5ce4926aaa9364d360875ec191f-52991355109.us-east4.gke.goog
 createTime: '2024-06-01T13:27:47+00:00'
-currentMasterVersion: 1.29.6-gke.1038001
-currentNodeVersion: 1.29.6-gke.1038001
+currentMasterVersion: 1.29.8-gke.1057000
+currentNodeVersion: 1.29.8-gke.1057000
 databaseEncryption:
   currentState: CURRENT_STATE_ENCRYPTED
   keyName: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
@@ -63,6 +63,9 @@ endpoint: 10.10.1.4
 enterpriseConfig:
   clusterTier: STANDARD
 etag: ae6deed7-b1be-48f8-a6d1-178ea1b76d88
+fleet:
+  membership: //gkehub.googleapis.com/projects/lab-gke-se/locations/us-east4/memberships/tenant-gke-private-1-cluster
+  project: lab-gke-se
 id: c99f588ea5ce4926aaa9364d360875ec191fdeb0d3bc4561a00543a487058525
 initialClusterVersion: 1.29.1-gke.1589020
 instanceGroupUrls:
@@ -192,6 +195,8 @@ nodePoolDefaults:
     loggingConfig:
       variantConfig:
         variant: DEFAULT
+    nodeKubeletConfig:
+      insecureKubeletReadonlyPortEnabled: false
 nodePools:
 - autoscaling:
     enabled: true

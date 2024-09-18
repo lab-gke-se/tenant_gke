@@ -45,8 +45,8 @@ autoscaling:
 binaryAuthorization: {}
 clusterIpv4Cidr: 240.2.64.0/19
 createTime: '2024-06-03T18:07:48+00:00'
-currentMasterVersion: 1.29.1-gke.1589020
-currentNodeVersion: 1.29.1-gke.1589020
+currentMasterVersion: 1.29.8-gke.1057000
+currentNodeVersion: 1.29.8-gke.1057000
 databaseEncryption:
   currentState: CURRENT_STATE_ENCRYPTED
   keyName: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
@@ -57,6 +57,9 @@ endpoint: 100.88.2.2
 enterpriseConfig:
   clusterTier: STANDARD
 etag: 64b88d66-b05c-418c-b485-58041ab7e38d
+fleet:
+  membership: //gkehub.googleapis.com/projects/lab-gke-se/locations/us-east4/memberships/tenant-gke-private-1-cluster
+  project: lab-gke-se
 id: a527f01905f04ad18d02748b36036c676632306657644b55b7a794ae5ba55285
 initialClusterVersion: 1.29.1-gke.1589020
 instanceGroupUrls:
@@ -178,6 +181,8 @@ nodePoolDefaults:
     loggingConfig:
       variantConfig:
         variant: DEFAULT
+    nodeKubeletConfig:
+      insecureKubeletReadonlyPortEnabled: false
 nodePools:
 - autoscaling:
     enabled: true
