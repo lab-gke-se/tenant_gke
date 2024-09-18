@@ -27,8 +27,8 @@ autoscaling:
     bootDiskKmsKey: ${kms_key_prj_tenant_2}
     serviceAccount: ${service_account}
 
-# currentMasterVersion: 1.29.7-gke.1274000
-# currentNodeVersion: 1.29.6-gke.1038001
+currentMasterVersion: 1.30.3-gke.1969001
+currentNodeVersion: 1.30.3-gke.1969001
 
 databaseEncryption:
   currentState: CURRENT_STATE_ENCRYPTED

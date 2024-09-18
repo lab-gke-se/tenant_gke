@@ -117,8 +117,8 @@ maintenancePolicy:
 binaryAuthorization: {}
 clusterIpv4Cidr: 240.0.64.0/19
 createTime: '2024-05-31T19:54:46+00:00'
-currentMasterVersion: 1.29.8-gke.1057000
-currentNodeVersion: 1.29.8-gke.1057000
+currentMasterVersion: 1.30.3-gke.1969001
+currentNodeVersion: 1.30.3-gke.1969001
 defaultMaxPodsConstraint:
   maxPodsPerNode: '110'
 endpoint: 34.86.165.214
@@ -129,7 +129,7 @@ fleet:
   membership: //gkehub.googleapis.com/projects/lab-gke-se/locations/us-east4/memberships/tenant-gke-private-1-cluster
   project: lab-gke-se
 id: 403ebcd6ddb049608bc7c24d2b4f9a534119cd8ee96742eeb6b60e0430d01dbc
-initialClusterVersion: 1.29.1-gke.1589020
+initialClusterVersion: 1.30.3-gke.1969001
 instanceGroupUrls:
 - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-cluster-default-pool-1fa84f9f-grp
 - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-cluster-pool-1-a118ab66-grp
