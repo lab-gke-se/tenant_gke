@@ -1,7 +1,7 @@
 module "cluster" {
   for_each = local.cluster_configs
   source   = "github.com/lab-gke-se/modules//gke/cluster?ref=main"
-  # source   = "../modules/gke/cluster"
+  # source = "../modules/gke/cluster"
 
   project                        = local.projects.prj_dev_tenant_1.project_id
   name                           = each.value.name
@@ -14,6 +14,7 @@ module "cluster" {
   currentNodeVersion             = try(each.value.currentNodeVersion, null)
   databaseEncryption             = each.value.databaseEncryption
   defaultMaxPodsConstraint       = try(each.value.defaultMaxPodsConstraint, null)
+  fleet                          = try(each.value.fleet, null)
   initialClusterVersion          = try(each.value.initialClusterVersion, null)
   ipAllocationPolicy             = each.value.ipAllocationPolicy
   location                       = each.value.location
@@ -35,7 +36,7 @@ module "cluster" {
   securityPostureConfig          = try(each.value.securityPostureConfig, null)
   shieldedNodes                  = try(each.value.shieldedNodes, null)
   subnetwork                     = each.value.subnetwork
-  verticalPodAutoscaling         = each.value.verticalPodAutoscaling
+  verticalPodAutoscaling         = try(each.value.verticalPodAutoscaling, null)
   workloadIdentityConfig         = try(each.value.workloadIdentityConfig, null)
 
   deletion_protection = local.deletion_protection

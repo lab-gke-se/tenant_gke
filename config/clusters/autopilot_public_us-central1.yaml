@@ -27,13 +27,17 @@ autoscaling:
     bootDiskKmsKey: ${kms_key_prj_tenant_2}
     serviceAccount: ${service_account}
 
-currentMasterVersion: 1.29.7-gke.1274000
-currentNodeVersion: 1.29.6-gke.1038001
+# currentMasterVersion: 1.29.7-gke.1274000
+# currentNodeVersion: 1.29.6-gke.1038001
 
 databaseEncryption:
   currentState: CURRENT_STATE_ENCRYPTED
   keyName: ${kms_key_prj_tenant_2}
   state: ENCRYPTED
+
+fleet:
+  membership: //gkehub.googleapis.com/projects/lab-gke-se/locations/us-east4/memberships/tenant-gke-private-1-cluster
+  project: lab-gke-se
 
 ipAllocationPolicy:
   clusterSecondaryRangeName: tenant-gke-pods
@@ -127,6 +131,8 @@ nodeConfig:
   - effect: NO_SCHEDULE
     key: cloud.google.com/gke-quick-remove
     value: 'true'
+  gvnic:
+    enabled: true
   windowsNodeConfig: {}
   workloadMetadataConfig:
     mode: GKE_METADATA
