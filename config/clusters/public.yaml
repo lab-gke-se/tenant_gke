@@ -55,6 +55,8 @@ masterAuthorizedNetworksConfig:
     displayName: Dave's Home
   - cidrBlock: 176.26.156.96/32
     displayName: Vino's Home
+  - cidrBlock: 34.90.34.165/32
+    displayName: cloud shell (temp)
   enabled: true
   gcpPublicCidrsAccessEnabled: false
 
