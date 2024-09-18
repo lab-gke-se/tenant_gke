@@ -1,6 +1,6 @@
 module "cluster" {
   for_each = local.cluster_configs
-  source   = "github.com/lab-gke-se/modules//gke/cluster?ref=feature%2Fgke-standard-cluster"
+  source   = "github.com/lab-gke-se/modules//gke/cluster?ref=main"
   # source   = "../modules/gke/cluster"
 
   project                        = local.projects.prj_dev_tenant_1.project_id
