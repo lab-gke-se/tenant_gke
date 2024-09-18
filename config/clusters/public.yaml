@@ -28,9 +28,7 @@ releaseChannel:
   channel: REGULAR
 
 addonsConfig:
-  horizontalPodAutoscaling: {
-    disabled: true
-  }
+  horizontalPodAutoscaling: {}
   httpLoadBalancing: {}
 
 autoscaling:

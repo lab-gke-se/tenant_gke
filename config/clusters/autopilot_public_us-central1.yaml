@@ -2,9 +2,7 @@ name: tenant-gke-cluster-usc1
 description: Private Autopilot Cluster with Public Endpoint
 
 addonsConfig:
-  horizontalPodAutoscaling: {
-    disabled: true
-  }
+  horizontalPodAutoscaling: {}
   httpLoadBalancing: {}
 
 autopilot:
