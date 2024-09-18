@@ -1,7 +1,33 @@
 name: tenant-gke-cluster-usc1
 description: Private Autopilot Cluster with Public Endpoint
+
+addonsConfig:
+  horizontalPodAutoscaling: {
+    disabled: true
+  }
+  httpLoadBalancing: {}
+
 autopilot:
   enabled: true
+
+autoscaling:
+  autoprovisioningNodePoolDefaults:
+    bootDiskKmsKey: ${kms_key_prj_tenant_2}
+    serviceAccount: ${service_account}
+
+currentMasterVersion: 1.29.7-gke.1274000
+currentNodeVersion: 1.29.6-gke.1038001
+
+databaseEncryption:
+  currentState: CURRENT_STATE_ENCRYPTED
+  keyName: ${kms_key_prj_tenant_2}
+  state: ENCRYPTED
+
+ipAllocationPolicy:
+  clusterSecondaryRangeName: tenant-gke-pods
+  servicesSecondaryRangeName: tenant-gke-services
+  stackType: IPV4
+  useIpAliases: true
 
 location: us-central1
 locations:
@@ -10,37 +36,17 @@ locations:
 - us-central1-c
 - us-central1-f
 
-network: projects/lab-gke-se/global/networks/dev-network
-subnetwork: projects/lab-gke-se/regions/us-central1/subnetworks/tenant-gke-us-central1
-
-ipAllocationPolicy:
-  clusterSecondaryRangeName: tenant-gke-pods
-  servicesSecondaryRangeName: tenant-gke-services
-  stackType: IPV4
-  useIpAliases: true
-
-privateClusterConfig:
-  enablePrivateEndpoint: false
-  enablePrivateNodes: true
-  masterGlobalAccessConfig:
-    enabled: true
-
-releaseChannel:
-  channel: REGULAR
-
-addonsConfig:
-  horizontalPodAutoscaling: {
-    disabled: true
-  }
-  httpLoadBalancing: {}
-
-autoscaling:
-  autoprovisioningNodePoolDefaults:
-    bootDiskKmsKey: ${kms_key_prj_tenant_2}
-    serviceAccount: ${service_account}
-
-verticalPodAutoscaling:
-  enabled: true
+loggingConfig:
+  componentConfig:
+    enableComponents:
+    # Default  
+    - SYSTEM_COMPONENTS
+    - WORKLOADS
+    # Additional 
+    - CONTROLLER_MANAGER
+    - SCHEDULER
+    - APISERVER
+loggingService: logging.googleapis.com/kubernetes
 
 masterAuthorizedNetworksConfig:
   cidrBlocks:
@@ -56,25 +62,10 @@ masterAuthorizedNetworksConfig:
     displayName: Dave's Home
   - cidrBlock: 176.26.156.96/32
     displayName: Vino's Home
+  - cidrBlock: 34.90.34.165/32
+    displayName: cloud shell (temp)
   enabled: true
   gcpPublicCidrsAccessEnabled: false
-
-databaseEncryption:
-  currentState: CURRENT_STATE_ENCRYPTED
-  keyName: ${kms_key_prj_tenant_2}
-  state: ENCRYPTED
-
-loggingConfig:
-  componentConfig:
-    enableComponents:
-    # Default  
-    - SYSTEM_COMPONENTS
-    - WORKLOADS
-    # Additional 
-    - CONTROLLER_MANAGER
-    - SCHEDULER
-    - APISERVER
-loggingService: logging.googleapis.com/kubernetes
 
 monitoringConfig:
   advancedDatapathObservabilityConfig:
@@ -82,12 +73,14 @@ monitoringConfig:
   componentConfig:
     enableComponents:
     - SYSTEM_COMPONENTS
+    - POD
     - DAEMONSET
     - DEPLOYMENT
     - STATEFULSET
     - STORAGE
     - HPA
-    - POD
+    - CADVISOR
+    - KUBELET
   managedPrometheusConfig:
     enabled: true
 monitoringService: monitoring.googleapis.com/kubernetes
@@ -99,4 +92,44 @@ maintenancePolicy:
       duration: PT4H0M0S
       startTime: 05:00
 
-# Everything below here is default or output only
+network: projects/lab-gke-se/global/networks/dev-network
+
+nodeConfig:
+  bootDiskKmsKey: projects/lab-gke-se/locations/us-central1/keyRings/LAB-GKE-SE-gke-key-ring-npkh/cryptoKeys/LAB-GKE-SE-gke-key
+  diskSizeGb: 100
+  diskType: pd-balanced
+  imageType: COS_CONTAINERD
+  machineType: e2-small
+  metadata:
+    disable-legacy-endpoints: 'true'
+  oauthScopes:
+  - https://www.googleapis.com/auth/userinfo.email
+  - https://www.googleapis.com/auth/cloud-platform
+  reservationAffinity:
+    consumeReservationType: NO_RESERVATION
+  serviceAccount: gke-cluster@lab-gke-se.iam.gserviceaccount.com
+  shieldedInstanceConfig:
+    enableIntegrityMonitoring: true
+    enableSecureBoot: true
+  taints:
+  - effect: NO_SCHEDULE
+    key: cloud.google.com/gke-quick-remove
+    value: 'true'
+  windowsNodeConfig: {}
+  workloadMetadataConfig:
+    mode: GKE_METADATA
+
+privateClusterConfig:
+  enablePrivateEndpoint: false
+  enablePrivateNodes: true
+  masterGlobalAccessConfig:
+    enabled: true
+
+releaseChannel:
+  channel: REGULAR
+
+subnetwork: projects/lab-gke-se/regions/us-central1/subnetworks/tenant-gke-us-central1
+
+verticalPodAutoscaling:
+  enabled: true
+
