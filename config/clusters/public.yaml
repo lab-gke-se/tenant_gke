@@ -28,9 +28,23 @@ releaseChannel:
   channel: REGULAR
 
 addonsConfig:
+  dnsCacheConfig:
+    enabled: true
+  gcePersistentDiskCsiDriverConfig:
+    enabled: true
+  gcpFilestoreCsiDriverConfig:
+    enabled: true
+  gcsFuseCsiDriverConfig:
+    enabled: true
   horizontalPodAutoscaling: {}
   httpLoadBalancing: {}
-
+  kubernetesDashboard:
+    disabled: true
+  networkPolicyConfig:
+    disabled: true
+  statefulHaConfig:
+    enabled: true
+    
 autoscaling:
   autoprovisioningNodePoolDefaults:
     bootDiskKmsKey: ${kms_key_prj_tenant_1}
