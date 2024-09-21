@@ -62,6 +62,7 @@ fleet:
   project: lab-gke-se
 id: a527f01905f04ad18d02748b36036c676632306657644b55b7a794ae5ba55285
 initialClusterVersion: 1.30.3-gke.1969001
+initialNodeCount: 1
 instanceGroupUrls:
 - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-default-pool-9d1ca904-grp
 - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-1-72635abf-grp
@@ -213,7 +214,6 @@ nodePools:
     workloadMetadataConfig:
       mode: GKE_METADATA
   etag: c7fca0fd-1e4f-4ba5-bbfe-e9a3579b57af
-  initialNodeCount: 1
   instanceGroupUrls:
   - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-default-pool-9d1ca904-grp
   locations:
