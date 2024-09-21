@@ -126,53 +126,99 @@ nodePoolDefaults:
     loggingConfig:
       variantConfig:
         variant: DEFAULT
-# nodePools:
-# - config:
-#     bootDiskKmsKey: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
-#     diskSizeGb: 100
-#     diskType: pd-balanced
-#     imageType: COS_CONTAINERD
-#     loggingConfig: {}
-#     machineType: e2-medium
-#     metadata:
-#       cluster_name: gke-standard-cluster
-#       disable-legacy-endpoints: 'true'
-#       node_pool: pool-01
-#     oauthScopes:
-#     - https://www.googleapis.com/auth/cloud-platform
-#     serviceAccount: gke-cluster@lab-gke-se.iam.gserviceaccount.com
-#     shieldedInstanceConfig:
-#       enableIntegrityMonitoring: true
-#       enableSecureBoot: true
-#     windowsNodeConfig: {}
-#     workloadMetadataConfig:
-#       mode: GKE_METADATA
-#   etag: c3012c1f-531b-43e7-955b-45c8239d3c13
-#   instanceGroupUrls:
-#   - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gke-standard-cluster-0-default-pool-52d128b0-grp
-#   - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gke-standard-cluster-0-default-pool-77d13123-grp
-#   - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gke-standard-cluster-0-default-pool-10374e08-grp
-#   locations:
-#   - us-east4-a
-#   - us-east4-b
-#   - us-east4-c
-#   management:
-#     autoRepair: true
-#     autoUpgrade: true
-#   maxPodsConstraint:
-#     maxPodsPerNode: '110'
-#   name: default-pool
-#   networkConfig:
-#     enablePrivateNodes: true
-#     podIpv4CidrBlock: 240.4.64.0/19
-#     podRange: tenant-gke-pods
-#   podIpv4CidrSize: 24
-#   selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/standard-cluster-0/nodePools/default-pool
-#   status: RUNNING
-#   upgradeSettings:
-#     maxSurge: 1
-#     strategy: SURGE
-#   version: 1.30.3-gke.1969001
+nodePools:
+- config:
+    bootDiskKmsKey: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
+    diskSizeGb: 100
+    diskType: pd-balanced
+    imageType: COS_CONTAINERD
+    loggingConfig: {}
+    machineType: e2-medium
+    metadata:
+      cluster_name: gke-standard-cluster
+      disable-legacy-endpoints: 'true'
+      node_pool: pool-01
+    oauthScopes:
+    - https://www.googleapis.com/auth/cloud-platform
+    serviceAccount: gke-cluster@lab-gke-se.iam.gserviceaccount.com
+    shieldedInstanceConfig:
+      enableIntegrityMonitoring: true
+      enableSecureBoot: true
+    windowsNodeConfig: {}
+    workloadMetadataConfig:
+      mode: GKE_METADATA
+  etag: c3012c1f-531b-43e7-955b-45c8239d3c13
+  instanceGroupUrls:
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gke-standard-cluster-0-default-pool-52d128b0-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gke-standard-cluster-0-default-pool-77d13123-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gke-standard-cluster-0-default-pool-10374e08-grp
+  locations:
+  - us-east4-a
+  - us-east4-b
+  - us-east4-c
+  management:
+    autoRepair: true
+    autoUpgrade: true
+  maxPodsConstraint:
+    maxPodsPerNode: '110'
+  name: application-pool-01
+  networkConfig:
+    enablePrivateNodes: true
+    podIpv4CidrBlock: 240.4.64.0/19
+    podRange: tenant-gke-pods
+  podIpv4CidrSize: 24
+  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/standard-cluster-0/nodePools/default-pool
+  status: RUNNING
+  upgradeSettings:
+    maxSurge: 1
+    strategy: SURGE
+  version: 1.30.3-gke.1969001
+- config:
+    bootDiskKmsKey: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
+    diskSizeGb: 100
+    diskType: pd-balanced
+    imageType: COS_CONTAINERD
+    loggingConfig: {}
+    machineType: e2-medium
+    metadata:
+      cluster_name: gke-standard-cluster
+      disable-legacy-endpoints: 'true'
+      node_pool: pool-01
+    oauthScopes:
+    - https://www.googleapis.com/auth/cloud-platform
+    serviceAccount: gke-cluster@lab-gke-se.iam.gserviceaccount.com
+    shieldedInstanceConfig:
+      enableIntegrityMonitoring: true
+      enableSecureBoot: true
+    windowsNodeConfig: {}
+    workloadMetadataConfig:
+      mode: GKE_METADATA
+  etag: c3012c1f-531b-43e7-955b-45c8239d3c13
+  instanceGroupUrls:
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gke-standard-cluster-0-default-pool-52d128b0-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gke-standard-cluster-0-default-pool-77d13123-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gke-standard-cluster-0-default-pool-10374e08-grp
+  locations:
+  - us-east4-a
+  - us-east4-b
+  - us-east4-c
+  management:
+    autoRepair: true
+    autoUpgrade: true
+  maxPodsConstraint:
+    maxPodsPerNode: '110'
+  name: platform-pool-01
+  networkConfig:
+    enablePrivateNodes: true
+    podIpv4CidrBlock: 240.4.64.0/19
+    podRange: tenant-gke-pods
+  podIpv4CidrSize: 24
+  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/standard-cluster-0/nodePools/default-pool
+  status: RUNNING
+  upgradeSettings:
+    maxSurge: 1
+    strategy: SURGE
+  version: 1.30.3-gke.1969001
 notificationConfig:
   pubsub: {}
 privateClusterConfig:
