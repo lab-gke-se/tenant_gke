@@ -39,6 +39,8 @@ fleet:
   membership: //gkehub.googleapis.com/projects/lab-gke-se/locations/us-east4/memberships/tenant-gke-private-1-cluster
   project: lab-gke-se
 
+initialNodeCount: 1
+
 ipAllocationPolicy:
   clusterSecondaryRangeName: tenant-gke-pods
   servicesSecondaryRangeName: tenant-gke-services
