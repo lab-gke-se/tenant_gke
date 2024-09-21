@@ -8,9 +8,9 @@ addonsConfig:
 autopilot: {}
 autoscaling:
   autoprovisioningLocations:
-    - us-east4-a
-    - us-east4-b
-    - us-east4-c
+  - us-east4-a
+  - us-east4-b
+  - us-east4-c
   autoprovisioningNodePoolDefaults:
     bootDiskKmsKey: ${kms_key_prj_tenant_1}
     diskSizeGb: 100
@@ -30,13 +30,13 @@ autoscaling:
       strategy: SURGE  
   autoscalingProfile: BALANCED
   enableNodeAutoprovisioning: true
-  resourceLimits:
-  - maximum: '1'
-    minimum: '1'
-    resourceType: cpu
-  - maximum: '1'
-    minimum: '1'
-    resourceType: memory
+  # resourceLimits:
+  # - maximum: '1'
+  #   minimum: '1'
+  #   resourceType: cpu
+  # - maximum: '1'
+  #   minimum: '1'
+  #   resourceType: memory
 binaryAuthorization: {}
 clusterIpv4Cidr: 240.6.64.0/19
 controlPlaneEndpointsConfig:
@@ -144,30 +144,31 @@ networkConfig:
     clusterDnsScope: CLUSTER_SCOPE
   enableIntraNodeVisibility: true
   gatewayApiConfig:
-    channel: CHANNEL_STANDARD  
+    channel: CHANNEL_STANDARD
   network: projects/lab-gke-se/global/networks/dev-network
   serviceExternalIpsConfig: {}
   subnetwork: projects/lab-gke-se/regions/us-east4/subnetworks/tenant-gke-standard-1
-nodeConfig:
-  bootDiskKmsKey: ${kms_key_prj_tenant_1}
-  diskSizeGb: 100
-  diskType: pd-balanced
-  imageType: COS_CONTAINERD
-  machineType: e2-small
-  metadata:
-    disable-legacy-endpoints: 'true'
-  oauthScopes:
-  - https://www.googleapis.com/auth/cloud-platform
-  - https://www.googleapis.com/auth/userinfo.email
-  reservationAffinity:
-    consumeReservationType: NO_RESERVATION
-  serviceAccount: ${service_account}
-  shieldedInstanceConfig:
-    enableIntegrityMonitoring: true
-    enableSecureBoot: true
-  windowsNodeConfig: {}
-  workloadMetadataConfig:
-    mode: GKE_METADATA
+# nodeConfig:
+#   bootDiskKmsKey: ${kms_key_prj_tenant_1}
+#   diskSizeGb: 100
+#   diskType: pd-balanced
+#   imageType: COS_CONTAINERD
+#   loggingConfig: {}
+#   machineType: e2-small
+#   metadata:
+#     disable-legacy-endpoints: 'true'
+#   oauthScopes:
+#   - https://www.googleapis.com/auth/cloud-platform
+#   - https://www.googleapis.com/auth/userinfo.email
+#   reservationAffinity:
+#     consumeReservationType: NO_RESERVATION
+#   serviceAccount: ${service_account}
+#   shieldedInstanceConfig:
+#     enableIntegrityMonitoring: true
+#     enableSecureBoot: true
+#   windowsNodeConfig: {}
+#   workloadMetadataConfig:
+#     mode: GKE_METADATA
 nodePoolDefaults:
   nodeConfigDefaults:
     gcfsConfig:
@@ -198,7 +199,6 @@ nodePools:
     workloadMetadataConfig:
       mode: GKE_METADATA
   etag: 321e124f-e4ad-4302-99fb-07b125cafb25
-  initialNodeCount: 1
   instanceGroupUrls:
   - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gke-standard-cluster-1-default-pool-14b3e5c2-grp
   - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gke-standard-cluster-1-default-pool-e0b7af19-grp

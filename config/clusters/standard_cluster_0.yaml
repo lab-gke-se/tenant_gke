@@ -101,26 +101,26 @@ networkConfig:
   network: projects/lab-gke-se/global/networks/dev-network
   serviceExternalIpsConfig: {}
   subnetwork: projects/lab-gke-se/regions/us-east4/subnetworks/tenant-gke-standard-0
-nodeConfig:
-  bootDiskKmsKey: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
-  diskSizeGb: 100
-  diskType: pd-balanced
-  imageType: COS_CONTAINERD
-  loggingConfig: {}
-  machineType: e2-medium
-  metadata:
-    cluster_name: gke-standard-cluster
-    disable-legacy-endpoints: 'true'
-    node_pool: pool-01
-  oauthScopes:
-  - https://www.googleapis.com/auth/cloud-platform
-  serviceAccount: gke-cluster@lab-gke-se.iam.gserviceaccount.com
-  shieldedInstanceConfig:
-    enableIntegrityMonitoring: true
-    enableSecureBoot: true
-  windowsNodeConfig: {}
-  workloadMetadataConfig:
-    mode: GKE_METADATA
+# nodeConfig:
+#   bootDiskKmsKey: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
+#   diskSizeGb: 100
+#   diskType: pd-balanced
+#   imageType: COS_CONTAINERD
+#   loggingConfig: {}
+#   machineType: e2-medium
+#   metadata:
+#     cluster_name: gke-standard-cluster
+#     disable-legacy-endpoints: 'true'
+#     node_pool: pool-01
+#   oauthScopes:
+#   - https://www.googleapis.com/auth/cloud-platform
+#   serviceAccount: gke-cluster@lab-gke-se.iam.gserviceaccount.com
+#   shieldedInstanceConfig:
+#     enableIntegrityMonitoring: true
+#     enableSecureBoot: true
+#   windowsNodeConfig: {}
+#   workloadMetadataConfig:
+#     mode: GKE_METADATA
 nodePoolDefaults:
   nodeConfigDefaults:
     loggingConfig:
