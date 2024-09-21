@@ -92,7 +92,7 @@ module "node_pool" {
 
   # Terraform / cluster variables
   project  = local.projects.prj_dev_tenant_1.project_id
-  cluster  = each.value.cluster_name
+  cluster  = module.cluster[each.value.cluster_name].id
   location = each.value.cluster_location
 
   # Node Pool variables
