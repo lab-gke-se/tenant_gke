@@ -72,10 +72,10 @@ module "cluster" {
 
 locals {
   cluster_node_pools = flatten([
-    for cluster in local.cluster_configs : [
+    for cluster_key, cluster in local.cluster_configs : [
       for nodePool in try(cluster.nodePools, []) : [
         merge({
-          cluster_name     = try(cluster.name, null)
+          cluster_key      = try(cluster_key, null)
           cluster_location = try(cluster.location, null)
           },
           nodePool
@@ -86,13 +86,13 @@ locals {
 }
 
 module "node_pool" {
-  for_each = { for cluster_node_pool in local.cluster_node_pools : "${cluster_node_pool.cluster_name}/${cluster_node_pool.name}" => cluster_node_pool }
+  for_each = { for cluster_node_pool in local.cluster_node_pools : "${cluster_node_pool.cluster_key}/${cluster_node_pool.name}" => cluster_node_pool }
   source   = "github.com/lab-gke-se/modules//gke/node_pool?ref=feature%2Fstandard-cluster"
   # source   = "../modules/gke/node_pool"
 
   # Terraform / cluster variables
   project  = local.projects.prj_dev_tenant_1.project_id
-  cluster  = module.cluster[each.value.cluster_name].id
+  cluster  = module.cluster[each.value.cluster_key].id
   location = each.value.cluster_location
 
   # Node Pool variables
