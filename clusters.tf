@@ -9,7 +9,7 @@ locals {
 
 module "cluster" {
   for_each = local.cluster_configs
-  source   = "github.com/lab-gke-se/modules//gke/cluster?ref=feature%2Fstandard-cluster"
+  source   = "github.com/lab-gke-se/modules//gke/cluster?ref=0.0.3"
   # source = "../modules/gke/cluster"
 
   # Terraform variables
@@ -87,7 +87,7 @@ locals {
 
 module "node_pool" {
   for_each = { for cluster_node_pool in local.cluster_node_pools : "${cluster_node_pool.cluster_key}/${cluster_node_pool.name}" => cluster_node_pool }
-  source   = "github.com/lab-gke-se/modules//gke/node_pool?ref=feature%2Fstandard-cluster"
+  source   = "github.com/lab-gke-se/modules//gke/node_pool?ref=0.0.3"
   # source   = "../modules/gke/node_pool"
 
   # Terraform / cluster variables
