@@ -9,14 +9,14 @@ locals {
 
 module "cluster" {
   for_each = local.config.clusters
-  source   = "github.com/lab-gke-se/modules//gke/cluster?ref=0.0.3"
-  # source = "../modules/gke/cluster"
+  # source   = "github.com/lab-gke-se/modules//container/cluster?ref=0.0.4"
+  source = "../modules//container/cluster"
 
   # Terraform variables
   project                  = local.projects.prj_dev_tenant_1.project_id
   deletion_protection      = local.deletion_protection
   remove_default_node_pool = true
-  # timeouts            = local.timeouts
+  timeouts                 = local.timeouts
 
   # GKE Variables
   name                      = each.value.name
@@ -87,8 +87,7 @@ locals {
 
 module "node_pool" {
   for_each = { for cluster_node_pool in local.cluster_node_pools : "${cluster_node_pool.cluster_key}/${cluster_node_pool.name}" => cluster_node_pool }
-  source   = "github.com/lab-gke-se/modules//gke/node_pool?ref=0.0.3"
-  # source   = "../modules/gke/node_pool"
+  source   = "github.com/lab-gke-se/modules//container/node_pool?ref=0.0.4"
 
   # Terraform / cluster variables
   project  = local.projects.prj_dev_tenant_1.project_id
@@ -109,4 +108,24 @@ module "node_pool" {
   placementPolicy        = try(each.value.placementPolicy, null)
   queuedProvisioning     = try(each.value.queuedProvisioning, null)
   bestEffortProvisioning = try(each.value.bestEffortProvisioning, null)
+}
+
+moved {
+  from = module.cluster["autopilot_public_us-central1"].google_container_cluster.primary
+  to   = module.cluster["autopilot_public_us-central1"].google_container_cluster.cluster
+}
+
+moved {
+  from = module.cluster["private"].google_container_cluster.primary
+  to   = module.cluster["private"].google_container_cluster.cluster
+}
+
+moved {
+  from = module.cluster["private_1"].google_container_cluster.primary
+  to   = module.cluster["private_1"].google_container_cluster.cluster
+}
+
+moved {
+  from = module.cluster["public"].google_container_cluster.primary
+  to   = module.cluster["public"].google_container_cluster.cluster
 }

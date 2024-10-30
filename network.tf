@@ -1,5 +1,5 @@
 module "firewall" {
-  source   = "../modules/compute/firewall/rule"
+  source   = "github.com/lab-gke-se/modules//compute/firewall/rule?ref=0.0.4"
   for_each = try(local.config.firewalls, [])
 
   project           = local.projects.prj_dev_tenant_1.project_id
@@ -17,7 +17,7 @@ module "firewall" {
 }
 
 module "router" {
-  source   = "../modules/compute/router"
+  source   = "github.com/lab-gke-se/modules//compute/router?ref=0.0.4"
   for_each = try(local.config.routers, [])
 
   project                     = local.projects.prj_dev_tenant_1.project_id

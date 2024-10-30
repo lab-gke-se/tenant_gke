@@ -1,5 +1,5 @@
 module "service_account" {
-  source   = "../modules//iam/service_account"
+  source   = "github.com/lab-gke-se/modules//iam/service_account?ref=0.0.4"
   for_each = try(local.serviceaccounts, {})
 
   projectId   = each.value.projectId

@@ -1,5 +1,5 @@
 module "secret" {
-  source   = "../modules/secretmanager/secret"
+  source   = "github.com/lab-gke-se/modules//secretmanager/secret?ref=0.0.4"
   for_each = try(local.secrets, {})
 
   project        = local.projects.prj_dev_tenant_1.project_id

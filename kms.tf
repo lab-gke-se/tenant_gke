@@ -1,12 +1,12 @@
 module "keyring" {
-  source   = "../modules/kms/keyring"
+  source   = "github.com/lab-gke-se/modules//kms/keyring?ref=0.0.4"
   for_each = try(local.keyrings, {})
 
   name = each.value.name
 }
 
 module "key" {
-  source   = "../modules/kms/key"
+  source   = "github.com/lab-gke-se/modules//kms/key?ref=0.0.4"
   for_each = try(local.kmskeys, {})
 
   name                          = each.value.name
@@ -24,7 +24,7 @@ module "key" {
 }
 
 module "key_iam" {
-  source   = "../modules/kms/iam"
+  source   = "github.com/lab-gke-se/modules//kms/iam?ref=0.0.4"
   for_each = try(module.key, {})
 
   key_id   = each.value.key_id

@@ -1,5 +1,5 @@
 module "instance" {
-  source   = "../modules/compute/instance"
+  source   = "github.com/lab-gke-se/modules//compute/instance?ref=0.0.4"
   for_each = try(local.config.instances, [])
 
   # allow_stopping_for_update = false
@@ -39,7 +39,7 @@ module "instance" {
 }
 
 module "disk" {
-  source   = "../modules/compute/disk"
+  source   = "github.com/lab-gke-se/modules//compute/disk?ref=0.0.4"
   for_each = try(local.config.disks, [])
 
   project                      = local.projects.prj_dev_tenant_1.project_id

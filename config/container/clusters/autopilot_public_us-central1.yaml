@@ -131,10 +131,10 @@ nodeConfig:
   shieldedInstanceConfig:
     enableIntegrityMonitoring: true
     enableSecureBoot: true
-  taints:
-  - effect: NO_SCHEDULE
-    key: cloud.google.com/gke-quick-remove
-    value: 'true'
+  # taints:
+  # - effect: NO_SCHEDULE
+  #   key: cloud.google.com/gke-quick-remove
+  #   value: 'true'
   gvnic:
     enabled: true
   windowsNodeConfig: {}

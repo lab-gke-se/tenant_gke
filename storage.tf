@@ -1,5 +1,5 @@
 module "storage_bucket" {
-  source   = "../modules/storage/bucket"
+  source   = "github.com/lab-gke-se/modules//storage/bucket?ref=0.0.4"
   for_each = try(local.buckets, {})
 
   project = local.projects.prj_dev_tenant_1.project_id
