@@ -88,10 +88,11 @@ locals {
 module "node_pool" {
   for_each = { for cluster_node_pool in local.cluster_node_pools : "${cluster_node_pool.cluster_key}/${cluster_node_pool.name}" => cluster_node_pool }
   source   = "github.com/lab-gke-se/modules//container/node_pool?ref=0.0.4"
+  # source = "../modules//container/node_pool"
 
   # Terraform / cluster variables
   project  = local.projects.prj_dev_tenant_1.project_id
-  cluster  = module.cluster[each.value.cluster_key].id
+  cluster  = module.cluster[each.value.cluster_key].name
   location = each.value.cluster_location
 
   # Node Pool variables
