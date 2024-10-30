@@ -1,0 +1,59 @@
+canIpForward: false
+cpuPlatform: Intel Broadwell
+creationTimestamp: '2024-06-01T07:01:20.060-07:00'
+deletionProtection: false
+disks:
+- architecture: X86_64
+  autoDelete: true
+  boot: true
+  deviceName: book-disk-glr-1
+  diskSizeGb: '11'
+  guestOsFeatures:
+  - type: UEFI_COMPATIBLE
+  - type: VIRTIO_SCSI_MULTIQUEUE
+  - type: GVNIC
+  - type: SEV_CAPABLE
+  index: 0
+  interface: SCSI
+  kind: compute#attachedDisk
+  licenses:
+  - https://www.googleapis.com/compute/v1/projects/debian-cloud/global/licenses/debian-11-bullseye
+  mode: READ_WRITE
+  source: https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/disks/bastion
+  type: PERSISTENT
+fingerprint: g6xV_5xsyCo=
+id: '4573615573152732992'
+kind: compute#instance
+labelFingerprint: 42WmSpB8rSM=
+lastStartTimestamp: '2024-06-01T07:01:25.466-07:00'
+machineType: https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/machineTypes/e2-micro
+metadata:
+  fingerprint: 9f82vypI1zU=
+  kind: compute#metadata
+name: bastion
+networkInterfaces:
+- fingerprint: OYFL4OQaBgk=
+  kind: compute#networkInterface
+  name: nic0
+  network: https://www.googleapis.com/compute/v1/projects/lab-gke-se/global/networks/dev-network
+  networkIP: 10.10.1.6
+  stackType: IPV4_ONLY
+  subnetwork: https://www.googleapis.com/compute/v1/projects/lab-gke-se/regions/us-east4/subnetworks/tenant-gke-private
+satisfiesPzi: true
+scheduling:
+  automaticRestart: true
+  onHostMaintenance: MIGRATE
+  preemptible: false
+  provisioningModel: STANDARD
+selfLink: https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instances/bastion
+shieldedInstanceConfig:
+  enableIntegrityMonitoring: true
+  enableSecureBoot: false
+  enableVtpm: true
+shieldedInstanceIntegrityPolicy:
+  updateAutoLearnPolicy: true
+startRestricted: false
+status: RUNNING
+tags:
+  fingerprint: 42WmSpB8rSM=
+zone: https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a

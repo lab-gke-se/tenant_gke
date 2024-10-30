@@ -1,0 +1,19 @@
+allowed:
+- IPProtocol: tcp
+  ports:
+  - '22'
+creationTimestamp: '2024-06-01T06:59:01.610-07:00'
+description: IAP ingress to ssh
+direction: INGRESS
+disabled: false
+id: '4849390943578003402'
+kind: compute#firewall
+logConfig:
+  enable: false
+  metadata: EXCLUDE_ALL_METADATA
+name: dev-tenant-1-ai-iap
+network: https://www.googleapis.com/compute/v1/projects/lab-gke-se/global/networks/dev-network
+priority: 1000
+selfLink: https://www.googleapis.com/compute/v1/projects/lab-gke-se/global/firewalls/dev-tenant-1-ai-iap
+sourceRanges:
+- 35.235.240.0/20

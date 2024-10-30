@@ -69,7 +69,7 @@ masterAuthorizedNetworksConfig:
     displayName: Vino's Home
   - cidrBlock: 34.90.34.165/32
     displayName: cloud shell (temp)
-  - cidrBlock: 188.29.0.52/32
+  - cidrBlock: 94.197.74.84/32
     displayName: Ashish's Home
   enabled: true
   gcpPublicCidrsAccessEnabled: false
@@ -172,6 +172,8 @@ networkConfig:
   serviceExternalIpsConfig: {}
   subnetwork: projects/lab-gke-se/regions/us-east4/subnetworks/tenant-gke
 nodeConfig:
+  gvnic:
+    enabled: true
   bootDiskKmsKey: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
   diskSizeGb: 100
   diskType: pd-balanced

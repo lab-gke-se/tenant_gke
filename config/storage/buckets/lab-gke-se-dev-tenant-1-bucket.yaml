@@ -1,0 +1,14 @@
+default_kms_key: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
+default_storage_class: STANDARD
+location: US-EAST4
+location_type: region
+metageneration: 1
+name: lab-gke-se-dev-tenant-1-bucket
+public_access_prevention: enforced
+soft_delete_policy:
+  effectiveTime: '2024-09-18T21:34:05.325000+00:00'
+  retentionDurationSeconds: '604800'
+storage_url: gs://lab-gke-se-dev-tenant-1-bucket/
+uniform_bucket_level_access: true
+update_time: 2024-09-18T21:34:05+0000
+versioning_enabled: true

@@ -8,7 +8,7 @@ locals {
 }
 
 module "cluster" {
-  for_each = local.cluster_configs
+  for_each = local.config.clusters
   source   = "github.com/lab-gke-se/modules//gke/cluster?ref=0.0.3"
   # source = "../modules/gke/cluster"
 
@@ -72,7 +72,7 @@ module "cluster" {
 
 locals {
   cluster_node_pools = flatten([
-    for cluster_key, cluster in local.cluster_configs : [
+    for cluster_key, cluster in local.config.clusters : [
       for nodePool in try(cluster.nodePools, []) : [
         merge({
           cluster_key      = try(cluster_key, null)
@@ -110,28 +110,3 @@ module "node_pool" {
   queuedProvisioning     = try(each.value.queuedProvisioning, null)
   bestEffortProvisioning = try(each.value.bestEffortProvisioning, null)
 }
-
-
-
-# Temporary until containerd supported by terraform
-# resource "local_file" "containerd_config" {
-#   for_each = { for name, config in local.cluster_configs : name => config if try(config.nodePoolDefaults.nodeConfigDefaults.containerdConfig.privateRegistryAccessConfig, null) != null }
-
-#   content  = yamlencode(each.value.nodePoolDefaults.nodeConfigDefaults.containerdConfig)
-#   filename = "${path.module}/config/clusters/containerd-config/${each.value.name}.yaml"
-# }
-
-# resource "null_resource" "run_command" {
-#   for_each = { for name, config in local.cluster_configs : name => config if try(config.nodePoolDefaults.nodeConfigDefaults.containerdConfig.privateRegistryAccessConfig, null) != null }
-
-#   depends_on = [module.cluster]
-
-#   provisioner "local-exec" {
-#     when    = create
-#     command = <<-EOT
-#       gcloud container clusters update ${each.value.name} --location=${each.value.location} --containerd-config-from-file="${local_file.containerd_config[each.key].filename}"    
-#     EOT
-#   }
-
-# }
-

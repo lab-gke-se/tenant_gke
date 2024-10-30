@@ -43,14 +43,8 @@ autoscaling:
   - maximum: '1000000000'
     resourceType: nvidia-tesla-a100
 binaryAuthorization: {}
-clusterIpv4Cidr: 240.1.64.0/19
-controlPlaneEndpointsConfig:
-  dnsEndpointConfig:
-    allowExternalTraffic: false
-    endpoint: gke-c99f588ea5ce4926aaa9364d360875ec191f-52991355109.us-east4.gke.goog
-  enhancedIngress:
-    endpoint: gke-c99f588ea5ce4926aaa9364d360875ec191f-52991355109.us-east4.gke.goog
-createTime: '2024-06-01T13:27:47+00:00'
+clusterIpv4Cidr: 240.2.64.0/19
+createTime: '2024-06-03T18:07:48+00:00'
 currentMasterVersion: 1.30.3-gke.1969001
 currentNodeVersion: 1.30.3-gke.1969001
 databaseEncryption:
@@ -59,43 +53,43 @@ databaseEncryption:
   state: ENCRYPTED
 defaultMaxPodsConstraint:
   maxPodsPerNode: '110'
-endpoint: 10.10.1.4
+endpoint: 100.88.2.2
 enterpriseConfig:
   clusterTier: STANDARD
-etag: ae6deed7-b1be-48f8-a6d1-178ea1b76d88
+etag: 64b88d66-b05c-418c-b485-58041ab7e38d
 fleet:
   membership: //gkehub.googleapis.com/projects/lab-gke-se/locations/us-east4/memberships/tenant-gke-private-1-cluster
   project: lab-gke-se
-id: c99f588ea5ce4926aaa9364d360875ec191fdeb0d3bc4561a00543a487058525
+id: a527f01905f04ad18d02748b36036c676632306657644b55b7a794ae5ba55285
 initialClusterVersion: 1.30.3-gke.1969001
 initialNodeCount: 1
 instanceGroupUrls:
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-c-default-pool-1b600ed1-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-1-482784c4-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-1-9ebeb029-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-1-032902a6-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-2-2151a627-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-2-f4a9cb6c-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-2-30a22c13-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-3-a3c293e0-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-3-6b603269-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-3-d9e94a82-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-4-81922807-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-4-159140bf-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-4-57d2b05e-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-5-da0c3fe1-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-5-ad1f88e4-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-5-cc009133-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-6-4ebe09a3-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-6-a6689915-grp
-- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-6-9807b478-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-default-pool-9d1ca904-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-1-72635abf-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-1-95c15bce-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-1-af7eba67-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-2-c31deaf5-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-2-f76e6070-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-2-94983181-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-3-e6e1ce5d-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-3-122ada25-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-3-eb70c143-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-4-550b9072-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-4-8a099138-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-4-d9681349-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-5-651a42cd-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-5-db0286d3-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-5-a0c984ef-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-6-3be4c5ec-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-6-07082cf3-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-6-63c34c37-grp
 ipAllocationPolicy:
-  clusterIpv4Cidr: 240.1.64.0/19
-  clusterIpv4CidrBlock: 240.1.64.0/19
+  clusterIpv4Cidr: 240.2.64.0/19
+  clusterIpv4CidrBlock: 240.2.64.0/19
   clusterSecondaryRangeName: tenant-gke-pods
   podCidrOverprovisionConfig: {}
-  servicesIpv4Cidr: 240.1.36.0/22
-  servicesIpv4CidrBlock: 240.1.36.0/22
+  servicesIpv4Cidr: 240.2.36.0/22
+  servicesIpv4CidrBlock: 240.2.36.0/22
   servicesSecondaryRangeName: tenant-gke-services
   stackType: IPV4
   useIpAliases: true
@@ -120,7 +114,7 @@ maintenancePolicy:
       startTime: 05:00
 masterAuth:
   clientCertificateConfig: {}
-  clusterCaCertificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQU5TdW85cTZXMFJVVUU3QnYyK2pmbmt3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1pUaG1NVEU1Wm1ZdE9UZGtZUzAwWXpVM0xUazNNakV0WXpreFpXVXdaV1l3TlRrMwpNQ0FYRFRJME1EWXdNVEV5TWpjME4xb1lEekl3TlRRd05USTFNVE15TnpRM1dqQXZNUzB3S3dZRFZRUURFeVJsCk9HWXhNVGxtWmkwNU4yUmhMVFJqTlRjdE9UY3lNUzFqT1RGbFpUQmxaakExT1Rjd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDL3JpcDlmVnh2cjc4QjRsTjFhQ1NLUkNrUnB3d0RHNEc2Q2hrYgpGNEVzUDZOOVB0Q1ZqbTRpSzA0NnlZK0NvVm42bjNkWEFZS2N6Ym54eWdKbFdwZlFLQWUvS0hqdGh4QkYrMzB4CkNrYVNYRUc4aTBGWDZ6TGYwOWp4VVZ6WWlxSS9LTTRmTktOS2xyN0RMbThvelVFMENUS3pSYTYwazNRdlR1ZzcKbVk2QzVRUk5TdEdRTENwcVRtUlJKOTQ2WWFQVGNIcWZwOTJ4R01QOEErUitBSzVFZnppazNMaWZJT0dpUHFaUQpnaHU2OUJnRTZuTE9EV3NReXRHdWFkbGZEMk04eTQwaXlwYUZHcnVxb1BCVWYyNEFPK1NTSk1qOWhDUGhGaHdmCkhGMnVEeVN4M1RuaXJwTlkvbHZ3SnRYdGVZVkVCQWxoQzVYVVZLQ2IvWkZhWE5OMFpzNTJBU3dxYTNOcGFTWmsKZERNMmtSamgzOWo3U2o0eTI1TGtGcmgzbEZsS3JPbHBOOGRrcWNrMVJlL004bFkwaHhPV0syVDFDbnVqRmwvdwo2a21reTgyN3lFQ2xsUWxOR0NVcU52U2NwcjRGZFJ4Yk1PS0FzNElXYk1YV0xOVHF3NDNPY0JqWlRnUHBSalJqCmVweWZ0Q2xNYUdWb1lYdFFrS0pDbmw2TkJEc0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGSUNvV1VGYUdLN3R4a0kvNGRjVjVYaGNnbnh2TUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQmRwdTZOVFc0RXp6WlZ1Q0J3eFN2d3VNN3VTa3czaG5XOHBvRVQ5WDU1CkVnVUNNMnZYVUNVQk1icFVhNStXejh0RnFUVWV5TnpnU3ZGR2VvemZMNW02T3Z6eFFETUgyK3RyNmh3SE5wVlQKOEF3SHc0dmkrTUI4VUl0akFzQTZoSGN0OS85anlmZXRLVnM5R3BBYlRXNHpMWEludiszNmJYQ3FzeVQyQnlaaQoyRmxBdGpFMnc1V0JYKzI1Z0E4MVRhRGVjUTU3Y3A0WHFYbjIzNzBURjBVdVNRcFpZeFkxaHRzR0ljdEkxUFY5ClNLUHhpWXhIcnN0MCtVdHBnV1oreFZEOURIUEQrNE9KUTdIakVhK09jNk1aSElUMmNnOEtaZHpCalBZNzFDZzQKQlZPUzdhbFNERXBEbmNFNXQ5NnlhZGxkVVpLbGl5eHg3TXhKWFNrcm9BZ3dhaExqaEUzYnlNN2dEUlY2cDltNwpKSnB4eklPaTRCN2hSdk83RGE3SWwyRUFyT0JZRHZiRmNBcmVZZ29KZDY5VzNVdFQ5QUM0VjJ2QnZBdnlnbkhmCnhpVFJ0YkxzbXlRVHNSRzlFcE9YRUZ5QjBTVzZEQVJHOERWZlZDR3MvOHlIVi90SHJIdXI5UUQxdUlMZXZQQWEKWjh3aitGOWtMdmd1YnlUdmtGOGpkYkU9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+  clusterCaCertificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMRENDQXBTZ0F3SUJBZ0lRVTlPZzlTRzFFazRMNElWKzdleWxyVEFOQmdrcWhraUc5dzBCQVFzRkFEQXYKTVMwd0t3WURWUVFERXlSbE1XUTBaamMzWVMxaU1tRTBMVFF3T0RRdE9URTFaUzFtT0RBeE1EUTNaalUzTWprdwpJQmNOTWpRd05qQXpNVGN3TnpRNFdoZ1BNakExTkRBMU1qY3hPREEzTkRoYU1DOHhMVEFyQmdOVkJBTVRKR1V4ClpEUm1OemRoTFdJeVlUUXROREE0TkMwNU1UVmxMV1k0TURFd05EZG1OVGN5T1RDQ0FhSXdEUVlKS29aSWh2Y04KQVFFQkJRQURnZ0dQQURDQ0FZb0NnZ0dCQU1vU3oxbkJUUm5BUWNKK0E0NE50aFErN3VaNGJlSkNpNkxaNTJQUgpLa1pIeWxPaXlMV3A0QnJGcExjelMrRDFPVGU1LzBiQmR1QzNaVnNkL3JBaXo5V0ZNNXZ2WWFWU2dtaEs5aS9XClVmc0lLMWlvcWhGbUE0ZHg2K2xTb0xQOThtSWUvUTB5MWJya2tCQ09lSXlaYW0yTU54d290ZndTcTZHeVFnakwKQjhZRk5sbmNTMDZ5SUw0Y3U1Z0dLTFQzUHcvN2VibTZmRDRqN3MrV3l0alhnUUFpTllZRkM4VzZaWUFGTjI2Zgp1UEVZSDczbmo5SlJRQmFORWtqQzAyWG9mSUZDdmhYemVIbDJYM1dxVWdNL1BUTndyVUdWdVExT2NiZ3hXNnd4Ck1BOGJPQ01CcHNNTnNyMEpoWkt6ZWQyZzQ3R0Vudy9ocjNEeFlBVXNXK3dSc2w1b1M0SzdlZEZGMmhjUHFpOXUKR2xBL0VRYlV6a3FTbDBXN01TQzNkemk2WTk4eXA4ejJYQkp6a05nV1ZVMHNUSHEyU0NmN281QXVBVDNjdUo0MQp3NTVzL0RpUkM0Y0lGSU9yb2tKNHA4RFN2d0ZueTBFeXZoYzFZZElTR3RTZHlZMUFlTlFESjZ0cTRBaUJFUXdWCkZlYTFwVmFSdHRLT0MwbzQ1NmpXU2hCYjF3SURBUUFCbzBJd1FEQU9CZ05WSFE4QkFmOEVCQU1DQWdRd0R3WUQKVlIwVEFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVVNb25KaktrTnhtY0tRSTRNV3dUVjhOQXJ1bkF3RFFZSgpLb1pJaHZjTkFRRUxCUUFEZ2dHQkFBVWVIZmFDalg0dit0cUVTbUhYY0t5UGNYWjNLaDdIRy9HVk9FZkJMVno2CkxDOHYxcUM2RFowcVRxMnQ4L2k0OFVyZmNKUE1Mc1o0c0hpZ2lhY29EclVXcERqM0NndzM4U0huNnpSOHhXRjcKZDQ1OTU1WE12VzRESldNd1BLekprM2dqRnprNTVsOUlPUjI3aDZqd0IvZ0NqaUpvMUNXY0lCYytrdkpsRGxvcQp3TXo5aHc0UXlZVVZBa3lnaWZ5QW93TEwvNWwwSmNiejhWaXA3SXFDME85bVY4MkRPWGNoN2V0aTd6WmZFTjlCCkl0SHpFbEVTWXA1SC9pZ2s2aXdTdlduNHRBbVp4Q2lPc25pOWozd0JTWExlY0hrOU1Fa2tGeVZGblRhTXVtQkkKZkVERzV0b3JaK05TSmpFUlNyT3VpSnB2aDdrdTlHanU3L3c1eE0xQjFTN0FjRVBKWndHRTViWkowT3JVSXo0bApBdnZyUXk0Zmdka09ldVJyMGtMN0pXN2Y1bmNiTVhrbFFZSTBmMnQrY1drbTgrVFF5dFRYb1VHMDA4bDJwUFVpCjFnRGtHV2NoeVp6emlNV1FHTDFWUEhuUEZja1RDMUtHamMwNXNvS1lBV0tTdUh4TTNzZFZxeDVpRVlqSkM1dUwKK3ArQUdxVzFGaDVNTVp0anRNSnhtUT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
 masterAuthorizedNetworksConfig:
   cidrBlocks:
   - cidrBlock: 10.10.1.0/25
@@ -133,16 +127,16 @@ monitoringConfig:
   componentConfig:
     enableComponents:
     - SYSTEM_COMPONENTS
-    - DAEMONSET
-    - DEPLOYMENT
-    - STATEFULSET
     - STORAGE
     - HPA
     - POD
+    - DAEMONSET
+    - DEPLOYMENT
+    - STATEFULSET
   managedPrometheusConfig:
     enabled: true
 monitoringService: monitoring.googleapis.com/kubernetes
-name: tenant-gke-private-cluster
+name: tenant-gke-private-1-cluster
 network: dev-network
 networkConfig:
   datapathProvider: ADVANCED_DATAPATH
@@ -156,8 +150,10 @@ networkConfig:
     channel: CHANNEL_STANDARD
   network: projects/lab-gke-se/global/networks/dev-network
   serviceExternalIpsConfig: {}
-  subnetwork: projects/lab-gke-se/regions/us-east4/subnetworks/tenant-gke-private
+  subnetwork: projects/lab-gke-se/regions/us-east4/subnetworks/tenant-gke-1
 nodeConfig:
+  gvnic:
+    enabled: true
   bootDiskKmsKey: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
   diskSizeGb: 100
   diskType: pd-balanced
@@ -183,14 +179,6 @@ nodeConfig:
     mode: GKE_METADATA
 nodePoolDefaults:
   nodeConfigDefaults:
-    containerdConfig:
-      privateRegistryAccessConfig:
-        certificateAuthorityDomainConfig:
-        - fqdns:
-          - test.example.com
-          gcpSecretManagerCertificateConfig:
-            secretUri: projects/52991355109/secrets/certificates/versions/1
-        enabled: true
     gcfsConfig:
       enabled: true
     loggingConfig:
@@ -227,12 +215,11 @@ nodePools:
     windowsNodeConfig: {}
     workloadMetadataConfig:
       mode: GKE_METADATA
-  etag: 9a22c39c-2b89-4011-bb2e-ea653aeb9b98
-  initialNodeCount: 1
+  etag: c7fca0fd-1e4f-4ba5-bbfe-e9a3579b57af
   instanceGroupUrls:
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-c-default-pool-1b600ed1-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-default-pool-9d1ca904-grp
   locations:
-  - us-east4-b
+  - us-east4-a
   management:
     autoRepair: true
     autoUpgrade: true
@@ -241,15 +228,15 @@ nodePools:
   name: default-pool
   networkConfig:
     enablePrivateNodes: true
-    podIpv4CidrBlock: 240.1.64.0/19
+    podIpv4CidrBlock: 240.2.64.0/19
     podRange: tenant-gke-pods
   podIpv4CidrSize: 26
-  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-cluster/nodePools/default-pool
+  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-1-cluster/nodePools/default-pool
   status: RUNNING
   upgradeSettings:
     maxSurge: 1
     strategy: SURGE
-  version: 1.29.6-gke.1038001
+  version: 1.29.1-gke.1589020
 - autoscaling:
     enabled: true
     locationPolicy: BALANCED
@@ -274,11 +261,11 @@ nodePools:
     windowsNodeConfig: {}
     workloadMetadataConfig:
       mode: GKE_METADATA
-  etag: d3946bf6-7f10-40c5-a011-7161a1a09177
+  etag: 3e51b40a-46f3-447c-9811-cfcb77b3f8bb
   instanceGroupUrls:
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-1-482784c4-grp
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-1-9ebeb029-grp
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-1-032902a6-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-1-72635abf-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-1-95c15bce-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-1-af7eba67-grp
   locations:
   - us-east4-a
   - us-east4-b
@@ -291,15 +278,15 @@ nodePools:
   name: pool-1
   networkConfig:
     enablePrivateNodes: true
-    podIpv4CidrBlock: 240.1.64.0/19
+    podIpv4CidrBlock: 240.2.64.0/19
     podRange: tenant-gke-pods
   podIpv4CidrSize: 26
-  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-cluster/nodePools/pool-1
+  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-1-cluster/nodePools/pool-1
   status: RUNNING
   upgradeSettings:
     maxSurge: 1
     strategy: SURGE
-  version: 1.29.6-gke.1038001
+  version: 1.29.1-gke.1589020
 - autoscaling:
     enabled: true
     locationPolicy: BALANCED
@@ -324,11 +311,11 @@ nodePools:
     windowsNodeConfig: {}
     workloadMetadataConfig:
       mode: GKE_METADATA
-  etag: 970fbb19-e114-4c72-9a79-3007f85f3df1
+  etag: 5c51f8f2-66cc-4e34-b70c-b84bf786f00d
   instanceGroupUrls:
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-2-2151a627-grp
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-2-f4a9cb6c-grp
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-2-30a22c13-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-2-c31deaf5-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-2-f76e6070-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-2-94983181-grp
   locations:
   - us-east4-a
   - us-east4-b
@@ -341,15 +328,15 @@ nodePools:
   name: pool-2
   networkConfig:
     enablePrivateNodes: true
-    podIpv4CidrBlock: 240.1.64.0/19
+    podIpv4CidrBlock: 240.2.64.0/19
     podRange: tenant-gke-pods
   podIpv4CidrSize: 26
-  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-cluster/nodePools/pool-2
+  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-1-cluster/nodePools/pool-2
   status: RUNNING
   upgradeSettings:
     maxSurge: 1
     strategy: SURGE
-  version: 1.29.6-gke.1038001
+  version: 1.29.1-gke.1589020
 - autoscaling:
     enabled: true
     locationPolicy: BALANCED
@@ -374,11 +361,11 @@ nodePools:
     windowsNodeConfig: {}
     workloadMetadataConfig:
       mode: GKE_METADATA
-  etag: a84ddf4d-9936-4e13-8684-3b597c9e33a0
+  etag: cd59ada2-c677-4fd7-8863-e429b929da05
   instanceGroupUrls:
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-3-a3c293e0-grp
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-3-6b603269-grp
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-3-d9e94a82-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-3-e6e1ce5d-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-3-122ada25-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-3-eb70c143-grp
   locations:
   - us-east4-a
   - us-east4-b
@@ -391,15 +378,15 @@ nodePools:
   name: pool-3
   networkConfig:
     enablePrivateNodes: true
-    podIpv4CidrBlock: 240.1.64.0/19
+    podIpv4CidrBlock: 240.2.64.0/19
     podRange: tenant-gke-pods
   podIpv4CidrSize: 26
-  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-cluster/nodePools/pool-3
+  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-1-cluster/nodePools/pool-3
   status: RUNNING
   upgradeSettings:
     maxSurge: 1
     strategy: SURGE
-  version: 1.29.6-gke.1038001
+  version: 1.29.1-gke.1589020
 - autoscaling:
     enabled: true
     locationPolicy: BALANCED
@@ -424,11 +411,11 @@ nodePools:
     windowsNodeConfig: {}
     workloadMetadataConfig:
       mode: GKE_METADATA
-  etag: c21f5cbc-b85b-4807-8e76-b63e60417e59
+  etag: e981fde0-08ec-4437-a60a-671c73ab06ca
   instanceGroupUrls:
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-4-81922807-grp
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-4-159140bf-grp
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-4-57d2b05e-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-4-550b9072-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-4-8a099138-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-4-d9681349-grp
   locations:
   - us-east4-a
   - us-east4-b
@@ -441,15 +428,15 @@ nodePools:
   name: pool-4
   networkConfig:
     enablePrivateNodes: true
-    podIpv4CidrBlock: 240.1.64.0/19
+    podIpv4CidrBlock: 240.2.64.0/19
     podRange: tenant-gke-pods
   podIpv4CidrSize: 26
-  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-cluster/nodePools/pool-4
+  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-1-cluster/nodePools/pool-4
   status: RUNNING
   upgradeSettings:
     maxSurge: 1
     strategy: SURGE
-  version: 1.29.6-gke.1038001
+  version: 1.29.1-gke.1589020
 - autoscaling:
     enabled: true
     locationPolicy: BALANCED
@@ -474,11 +461,11 @@ nodePools:
     windowsNodeConfig: {}
     workloadMetadataConfig:
       mode: GKE_METADATA
-  etag: e360534f-603d-4637-96ed-4b14458e9c26
+  etag: 362c4e5d-1071-4fbd-ba56-802a26e3c65a
   instanceGroupUrls:
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-5-da0c3fe1-grp
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-5-ad1f88e4-grp
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-5-cc009133-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-5-651a42cd-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-5-db0286d3-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-5-a0c984ef-grp
   locations:
   - us-east4-a
   - us-east4-b
@@ -491,15 +478,15 @@ nodePools:
   name: pool-5
   networkConfig:
     enablePrivateNodes: true
-    podIpv4CidrBlock: 240.1.64.0/19
+    podIpv4CidrBlock: 240.2.64.0/19
     podRange: tenant-gke-pods
   podIpv4CidrSize: 26
-  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-cluster/nodePools/pool-5
+  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-1-cluster/nodePools/pool-5
   status: RUNNING
   upgradeSettings:
     maxSurge: 1
     strategy: SURGE
-  version: 1.29.6-gke.1038001
+  version: 1.29.1-gke.1589020
 - autoscaling:
     enabled: true
     locationPolicy: BALANCED
@@ -524,11 +511,11 @@ nodePools:
     windowsNodeConfig: {}
     workloadMetadataConfig:
       mode: GKE_METADATA
-  etag: b3effb11-db6b-450f-bca2-2205f2a7cd3f
+  etag: 682233da-a457-45d4-bcd0-1f7d36e2d90e
   instanceGroupUrls:
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-6-4ebe09a3-grp
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-6-a6689915-grp
-  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-cluster-pool-6-9807b478-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-6-3be4c5ec-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-6-07082cf3-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gk3-tenant-gke-private-1-clust-pool-6-63c34c37-grp
   locations:
   - us-east4-a
   - us-east4-b
@@ -541,15 +528,15 @@ nodePools:
   name: pool-6
   networkConfig:
     enablePrivateNodes: true
-    podIpv4CidrBlock: 240.1.64.0/19
+    podIpv4CidrBlock: 240.2.64.0/19
     podRange: tenant-gke-pods
   podIpv4CidrSize: 26
-  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-cluster/nodePools/pool-6
+  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-1-cluster/nodePools/pool-6
   status: RUNNING
   upgradeSettings:
     maxSurge: 1
     strategy: SURGE
-  version: 1.29.6-gke.1038001
+  version: 1.29.1-gke.1589020
 notificationConfig:
   pubsub: {}
 privateClusterConfig:
@@ -557,19 +544,19 @@ privateClusterConfig:
   enablePrivateNodes: true
   masterGlobalAccessConfig:
     enabled: true
-  privateEndpoint: 10.10.1.4
-  publicEndpoint: 34.145.145.46
+  privateEndpoint: 100.88.2.2
+  publicEndpoint: 35.199.21.204
 releaseChannel:
   channel: REGULAR
 securityPostureConfig:
   mode: DISABLED
   vulnerabilityMode: VULNERABILITY_DISABLED
-selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-cluster
-servicesIpv4Cidr: 240.1.36.0/22
+selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/tenant-gke-private-1-cluster
+servicesIpv4Cidr: 240.2.36.0/22
 shieldedNodes:
   enabled: true
 status: RUNNING
-subnetwork: tenant-gke-private
+subnetwork: tenant-gke-1
 verticalPodAutoscaling:
   enabled: true
 workloadIdentityConfig:
