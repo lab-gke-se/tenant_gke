@@ -1,0 +1,7 @@
+privateRegistryAccessConfig:
+  certificateAuthorityDomainConfig:
+  - gcpSecretManagerCertificateConfig:
+      secretURI: projects/52991355109/secrets/certificates/versions/1
+    fqdns:
+    - test.example.com
+  enabled: true

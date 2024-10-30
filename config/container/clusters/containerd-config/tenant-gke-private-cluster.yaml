@@ -1,0 +1,7 @@
+"privateRegistryAccessConfig":
+  "certificateAuthorityDomainConfig":
+  - "fqdns":
+    - "test.example.com"
+    "gcpSecretManagerCertificateConfig":
+      "secretURI": "projects/52991355109/secrets/certificates/versions/1"
+  "enabled": true

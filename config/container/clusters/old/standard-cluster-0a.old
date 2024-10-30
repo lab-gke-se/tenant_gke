@@ -1,0 +1,128 @@
+addonsConfig:
+  gcePersistentDiskCsiDriverConfig:
+    enabled: true
+  kubernetesDashboard:
+    disabled: true
+  networkPolicyConfig:
+    disabled: true
+autopilot: {}
+autoscaling:
+  autoscalingProfile: BALANCED
+binaryAuthorization: {}
+clusterIpv4Cidr: 240.4.64.0/19
+controlPlaneEndpointsConfig:
+  dnsEndpointConfig:
+    allowExternalTraffic: true
+    endpoint: gke-82b607e375b34b78a47b35e102306dd308a1-52991355109.us-east4.gke.goog
+  enhancedIngress:
+    endpoint: gke-82b607e375b34b78a47b35e102306dd308a1-52991355109.us-east4.gke.goog
+createTime: '2024-09-21T14:41:28+00:00'
+currentMasterVersion: 1.30.3-gke.1969001
+currentNodeVersion: 1.30.3-gke.1969001
+databaseEncryption:
+  currentState: CURRENT_STATE_ENCRYPTED
+  keyName: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
+  state: ENCRYPTED
+defaultMaxPodsConstraint:
+  maxPodsPerNode: '110'
+endpoint: 35.245.94.89
+enterpriseConfig:
+  clusterTier: STANDARD
+etag: 40415b23-53da-4e3f-bfd0-7ec33c6e5bf9
+id: 82b607e375b34b78a47b35e102306dd308a1e4eefcdf461d8922f15e18e2474d
+initialClusterVersion: 1.30.3-gke.1969001
+initialNodeCount: 1
+ipAllocationPolicy:
+  clusterIpv4Cidr: 240.4.64.0/19
+  clusterIpv4CidrBlock: 240.4.64.0/19
+  clusterSecondaryRangeName: tenant-gke-pods
+  podCidrOverprovisionConfig: {}
+  servicesIpv4Cidr: 240.4.36.0/22
+  servicesIpv4CidrBlock: 240.4.36.0/22
+  servicesSecondaryRangeName: tenant-gke-services
+  stackType: IPV4
+  useIpAliases: true
+labelFingerprint: a9dc16a7
+legacyAbac: {}
+location: us-east4
+locations:
+- us-east4-a
+- us-east4-b
+- us-east4-c
+loggingConfig:
+  componentConfig:
+    enableComponents:
+    - SYSTEM_COMPONENTS
+    - WORKLOADS
+loggingService: logging.googleapis.com/kubernetes
+maintenancePolicy:
+  resourceVersion: ce912209
+  window:
+    dailyMaintenanceWindow:
+      duration: PT4H0M0S
+      startTime: 05:00
+masterAuth:
+  clientCertificateConfig: {}
+  clusterCaCertificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMRENDQXBTZ0F3SUJBZ0lRRWZsNWwrN1BDOFM4V3FtU0ZRWGNYakFOQmdrcWhraUc5dzBCQVFzRkFEQXYKTVMwd0t3WURWUVFERXlSak9USTFObVppTlMwM016TTFMVFF6WWpjdFlURXlOeTAzWm1Gall6UXlZVE0wWkRFdwpJQmNOTWpRd09USXhNVE0wTVRJNFdoZ1BNakExTkRBNU1UUXhORFF4TWpoYU1DOHhMVEFyQmdOVkJBTVRKR001Ck1qVTJabUkxTFRjek16VXRORE5pTnkxaE1USTNMVGRtWVdOak5ESmhNelJrTVRDQ0FhSXdEUVlKS29aSWh2Y04KQVFFQkJRQURnZ0dQQURDQ0FZb0NnZ0dCQU41QVVOQ094MUswbmFzTTRSRUw0d2JmSEh3NGNQampyM1duekJEMAoveWtrNEsxYnk5K0RmWnJ5SnlwSVBoa213dHQ5M0c1MDJxd2JndEtBeHNkcVFjZnlUVkpGVU9aY2QyZHA3SHRuCjdyMUc1OC9MUFR0L3FPR1h1UVJGaWREZk5WM256T2VpdkJSWGtMck1kd1lIcSsyOHdSL29hRjdBRFZaN2R4QU4KMndUSFhxVlFaazlnWm9wcTlzaW9hTGV1YUJFT0dwcTZ2dlZ2WTJETzl1NGNVaU0vcEdRTXRGQzB2QUdZdUN1OApzN3hwUk0raXV0VTFxcTFSa3o4YlJBYWVoaEQ3NUZZVnBrSG9VMVBZb1J2RC81ZkdqSjJKTkhQZ2k4c2lUVThZCkpJdVlCR2lWanQrN0hOZE83dm5oUHF3eTgya3I3aWlWYWN5SWhaOTc0NExUMmI5VE5COUUzWndmd1VBc2pTVUMKMUxPM3JNVkVpcEdTMDJ1Y0E3emU2SUNGQXdOQyt3bWpmdHlka0Z4QzNKMEpNMGx4bUpuSXEzN0NpZUc5SWMxWAp0SUZoUDJ1bnFFeFViNlppYkU3U09CM0pIUXZnbWRkWGRMR3lMd29HZ2l0MWJaWmhWcXd1aDB1L3NORVhFSCtGClI3M2txeWt6ZTNla1Rtc3RCKzB4YUQ2WWx3SURBUUFCbzBJd1FEQU9CZ05WSFE4QkFmOEVCQU1DQWdRd0R3WUQKVlIwVEFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVV2azFDZy9xUEVLVVpaM3F3WnlwUWIxUjN2Q2t3RFFZSgpLb1pJaHZjTkFRRUxCUUFEZ2dHQkFOUHMrQ2pYRDRaN09SY2dadDYvY01JVEZrbEJWSEw4dW9qMU4yTW9PTXE1CkZ0MmQzemxXNzdVY2xSdjQzZ0lxeHdZNmtXcVQ4TXc3ZVJ5Q2RoZ0ZSMXV5Mkd6c1h6MWZtaG9rTS8rU2t1akoKQVU5Q05GV0FqZE02SklNMUhRS3J4dTBINWZad0NrOVROc09zdDNNd1prbnBlektZd2oyaHhMNHZSWEJ4czh0YQpjdXNsdE84YnVIRzArQ0NXWkN0UHRncVIyZzk2VEp1M2tZbzRzSnNUc1pKb2Z1S3ZmQ0JVVEdnRHFpQUNBWUs4Clo2enhtZVExbFpxTi83SnpJMUdUSlJDQTBqRDVjNHowNzd0aGhnM2p6RnViSHVzOU1pRG5BK0NORmlhTlIxWG8KZ0lvZ1Nic0xucUkxL0UyNDNRTmFPdnlZUSt1ZmJ6bGZyQ29CdVRqZ3lJZ21TT1FRc00yN3A2bm1NTnNOZGg2UQppUUp3ZCtqb3I4RXpQTnFnVXNMbEE5QVRpcU1wMWxubXN4c2xpMGhJWGR3RzZwY2pxWjZWS1FTNUY4aEV1MFZwCnYxakhuU1RwQjFrdGw2OTBwMS9WT3RKQTV2SDFncnE5czBBK3FyRmhtOExFdXNIZ3dGd0hsYWNZS1d4bDFXMGsKT0FRNTQxcFFZSm9rVFB4a0FpNU41QT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+masterAuthorizedNetworksConfig:
+  cidrBlocks:
+  - cidrBlock: 217.8.23.33/32
+    displayName: Himanshu's Home
+  - cidrBlock: 10.10.2.0/24
+    displayName: vdi
+  - cidrBlock: 34.90.34.165/32
+    displayName: cloud shell (temp)
+  - cidrBlock: 176.26.156.96/32
+    displayName: Vino's Home
+  - cidrBlock: 161.124.14.0/24
+    displayName: pupi
+  - cidrBlock: 10.10.1.0/25
+    displayName: Bastion
+  - cidrBlock: 77.101.187.225/32
+    displayName: Dave's Home
+  enabled: true
+  gcpPublicCidrsAccessEnabled: false
+monitoringConfig:
+  advancedDatapathObservabilityConfig: {}
+  componentConfig:
+    enableComponents:
+    - SYSTEM_COMPONENTS
+  managedPrometheusConfig:
+    enabled: true
+monitoringService: monitoring.googleapis.com/kubernetes
+name: standard-cluster-0
+network: dev-network
+networkConfig:
+  defaultSnatStatus: {}
+  network: projects/lab-gke-se/global/networks/dev-network
+  serviceExternalIpsConfig: {}
+  subnetwork: projects/lab-gke-se/regions/us-east4/subnetworks/tenant-gke-standard-0
+nodePoolDefaults:
+  nodeConfigDefaults:
+    loggingConfig:
+      variantConfig:
+        variant: DEFAULT
+notificationConfig:
+  pubsub: {}
+privateClusterConfig:
+  enablePrivateNodes: true
+  masterIpv4CidrBlock: 100.88.5.160/28
+  privateEndpoint: 100.88.5.162
+  publicEndpoint: 35.245.94.89
+rbacBindingConfig:
+  enableInsecureBindingSystemAuthenticated: true
+  enableInsecureBindingSystemUnauthenticated: true
+releaseChannel:
+  channel: REGULAR
+securityPostureConfig:
+  mode: DISABLED
+  vulnerabilityMode: VULNERABILITY_DISABLED
+selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/standard-cluster-0
+servicesIpv4Cidr: 240.4.36.0/22
+shieldedNodes:
+  enabled: true
+status: RUNNING
+subnetwork: tenant-gke-standard-0
+workloadIdentityConfig:
+  workloadPool: lab-gke-se.svc.id.goog
+zone: us-east4

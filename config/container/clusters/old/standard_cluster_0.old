@@ -1,0 +1,262 @@
+description: Private Standard Cluster with Public Endpoint
+# remove_default_node_pool: false
+initial_node_count: 1
+addonsConfig:
+  configConnectorConfig: {}
+  dnsCacheConfig: {}
+  gcePersistentDiskCsiDriverConfig:
+    enabled: true
+  gcpFilestoreCsiDriverConfig: {}
+  gkeBackupAgentConfig: {}
+  horizontalPodAutoscaling: {}
+  httpLoadBalancing: {}
+  kubernetesDashboard:
+    disabled: true
+  networkPolicyConfig:
+    disabled: true
+autopilot: {}
+autoscaling:
+  autoprovisioningLocations:
+  - us-east4-a
+  - us-east4-b
+  - us-east4-c
+  # autoprovisioningNodePoolDefaults:
+  #   bootDiskKmsKey: ${kms_key_prj_tenant_1}
+  #   diskSizeGb: 100
+  #   diskType: pd-balanced
+  #   imageType: COS_CONTAINERD
+  #   management:
+  #     autoRepair: true
+  #     autoUpgrade: true
+  #   oauthScopes:
+  #   - https://www.googleapis.com/auth/userinfo.email
+  #   - https://www.googleapis.com/auth/cloud-platform
+  #   serviceAccount: ${service_account}
+  #   shieldedInstanceConfig:
+  #     enableIntegrityMonitoring: true
+  #   upgradeSettings:
+  #     maxSurge: 1
+  #     strategy: SURGE
+  autoscalingProfile: BALANCED
+  enableNodeAutoprovisioning: true
+  # resourceLimits:
+  # - maximum: '1'
+  #   minimum: '1'
+  #   resourceType: cpu
+  # - maximum: '1'
+  #   minimum: '1'
+  #   resourceType: memory
+binaryAuthorization: {}
+clusterIpv4Cidr: 240.0.96.0/19
+controlPlaneEndpointsConfig:
+  dnsEndpointConfig:
+    allowExternalTraffic: true
+    endpoint: gke-4edad254342148c8828cbc4b9c619548b9d8-1034800140913.us-east4.gke.goog
+  enhancedIngress:
+    endpoint: gke-4edad254342148c8828cbc4b9c619548b9d8-1034800140913.us-east4.gke.goog
+createTime: '2024-07-16T19:33:08+00:00'
+# currentMasterVersion: 1.29.7-gke.1104000
+# currentNodeVersion: 1.29.7-gke.1104000
+databaseEncryption:
+  currentState: CURRENT_STATE_ENCRYPTED
+  keyName: ${kms_key_prj_tenant_1}
+  state: ENCRYPTED
+defaultMaxPodsConstraint:
+  maxPodsPerNode: '20'
+endpoint: 34.48.165.199
+enterpriseConfig:
+  clusterTier: STANDARD
+etag: 75853b30-1a2d-4faf-9077-45649f6caf0c
+id: 4edad254342148c8828cbc4b9c619548b9d89e8c92e24858bb646b1b92463b7a
+initialClusterVersion: 1.29.5-gke.1091002
+initialNodeCount: 1
+instanceGroupUrls:
+- https://www.googleapis.com/compute/v1/projects/prj-cti-na-gke-286e/zones/us-east4-a/instanceGroupManagers/gke-gke-standard-cluster-pool-01-a35b577c-grp
+- https://www.googleapis.com/compute/v1/projects/prj-cti-na-gke-286e/zones/us-east4-b/instanceGroupManagers/gke-gke-standard-cluster-pool-01-ded33ba6-grp
+- https://www.googleapis.com/compute/v1/projects/prj-cti-na-gke-286e/zones/us-east4-c/instanceGroupManagers/gke-gke-standard-cluster-pool-01-2752c63c-grp
+ipAllocationPolicy:
+  clusterIpv4Cidr: 240.0.96.0/19
+  clusterIpv4CidrBlock: 240.0.96.0/19
+  clusterSecondaryRangeName: tenant-gke-pods
+  podCidrOverprovisionConfig: {}
+  servicesIpv4Cidr: 240.0.40.0/22
+  servicesIpv4CidrBlock: 240.0.40.0/22
+  servicesSecondaryRangeName: tenant-gke-services
+  stackType: IPV4
+  useIpAliases: true
+labelFingerprint: a9dc16a7
+legacyAbac: {}
+location: us-east4
+locations:
+- us-east4-a
+- us-east4-b
+- us-east4-c
+loggingConfig:
+  componentConfig:
+    enableComponents:
+    - SYSTEM_COMPONENTS
+    - WORKLOADS
+loggingService: logging.googleapis.com/kubernetes
+maintenancePolicy:
+  resourceVersion: ce912209
+  window:
+    dailyMaintenanceWindow:
+      duration: PT4H0M0S
+      startTime: 05:00
+masterAuth:
+  clientCertificateConfig: {}
+  clusterCaCertificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQUlEbkR4R0FPTzk5d0FCYy9hdDFHLzh3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1lqQmtOVEJpTnpZdFpqaGtaUzAwWkdJekxXRmhZekV0TVRnMFpERmxZakF3WXpGaApNQ0FYRFRJME1EY3hOakU0TXpNd09Wb1lEekl3TlRRd056QTVNVGt6TXpBNVdqQXZNUzB3S3dZRFZRUURFeVJpCk1HUTFNR0kzTmkxbU9HUmxMVFJrWWpNdFlXRmpNUzB4T0RSa01XVmlNREJqTVdFd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FEUHhHMGF1anFqTkVxN24zaDk5TS80Y3VITHRvK0xoQ3NqMnZydgp2TVZDcDVzaDNramlyUlJVV3d3bmJ4SUJmT25wYktWdUJuZ0F4ZWpXcTJIZi9ydnAvS09mQXQzcUhqdVRSL0ROCnYwdHFSdlRkVVQ5V3JzTlM2NHVvTG1OQzRQM09vaUozVW1FY1dBaUpHbEhMbHRjbjNvRS9GcWJrQW0wOWE5VzYKODNZSE12dnRCdFFrcFFrK2M0dXNiVHNYYVY4V21kUW9Qb0V1RmZqOWFJTUNQNnVZcW5TOVhPSGNnSW1wakhWVQpiclNnQ1l3aG1sZE5hRCtYSU5lOXBWMEJwSmNXTFlyU3IyR1F4RlRKVVExbzRLOFBScjZUeEtybHNtdWNwd1dDCktIQmUzNzhDN3VQcU9HeFdUNlJtM09GcnlXQU9LUElDUEFDUnlXUHAwRzRubjRjbGszbFI5ekZoUXNSbkJGQVgKQWZMeWdCOGJ5cHd6cXlNeXdSaUJGUHVxeWthQ1N0b3B6N2hBbi9pMENqSXkxZ2ZlL0MvU0ZQWWd5VlA4RkRNLwpzamYwb08relVNcW1pSWpmS3lJbFRRdHljM0x6Z21SQXArRHJ3RHo2V1R3bGdaVnQ5VEJKd2JYNDNjeFkwKzZtCnd4aTU0SUh6WDVIRGlrbE4vWnVDMTFieG1PY0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGQUxtOGtjL1NaaFRxSXA2dWljTlZLTjBXdXZCTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQldXcVhzZ0p3K2xaNEJ4cWF6Uy9WQmY3aHM2cmZZelMxMkZWQUp1WVBKCms0YjFkeVovMHpwblBET0ZFSCt2RG9aUUV2ZTVHSk1YV3JPRFBsZlNyWThubk8zODlKcnNsdG0zNHRQTkx4Y1EKbStHdDlLeEFIZlE4QlBPcmdkWUNDSDJCdEUwdytzMm9NRWpCbFM5Zm9DNzZjc2I3N2QyQnVYV3NIcHEzZ1Z3bQo0N2VLenRNVU44V1RpZXUrM1QvSmlPbzk0Q0FPOUhsakNUcHJIenk0aGFkdU4yc04rRnp2eE4vVzlqL2dXTHczClVtb1NEYmdhQ3pnbC8ydzdoRThJVmJNUjBYTDdvdTRncmQxV20wT3dvVEsrRzhqSXNySndRbU1icEhKMDM5R1AKNHQ5SmQvUzZpYVJmMTdRR0o3R0dORFFpMndHZDRmeUozd2dOdklXU1NVSjV0L2hRWW5iZDJYUWVycDVOalBYbwpRaGlZaVJ1U3JPTTR1N0FsL2IyejVFWDZWTjBLbUlhYXlhSFVCdFM3R1JqRytjZjBIb2FWVEtTNHlPSDBhNVZxCnUrS2swR0U4YkdQVzJwUkc3dG5BT3lVNWlqMkEyOC8xSmhjajJ1SnI2SzhucXpGRm0wWm52RE0xbnlveFB5c2cKQkFBUVIxODErZFB4R1BVS1VIdTE1T2s9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+masterAuthorizedNetworksConfig:
+  cidrBlocks:
+  - cidrBlock: 217.8.23.33/32
+    displayName: Himanshu's Home
+  - cidrBlock: 10.10.2.0/24
+    displayName: vdi
+  - cidrBlock: 34.90.34.165/32
+    displayName: cloud shell (temp)
+  - cidrBlock: 176.26.156.96/32
+    displayName: Vino's Home
+  - cidrBlock: 161.124.14.0/24
+    displayName: pupi
+  - cidrBlock: 10.10.1.0/25
+    displayName: Bastion
+  - cidrBlock: 77.101.187.225/32
+    displayName: Dave's Home
+  enabled: true
+  gcpPublicCidrsAccessEnabled: false
+meshCertificates:
+  enableCertificates: false
+monitoringConfig:
+  advancedDatapathObservabilityConfig: {}
+  componentConfig:
+    enableComponents:
+    - SYSTEM_COMPONENTS
+  managedPrometheusConfig:
+    enabled: true
+monitoringService: monitoring.googleapis.com/kubernetes
+name: standard-cluster-0
+network: dev-network
+networkConfig:
+  defaultSnatStatus: {}
+  network: projects/prj-se-shvnam-5ffe/global/networks/se-shared-base
+  serviceExternalIpsConfig: {}
+  subnetwork: projects/prj-se-shvnam-5ffe/regions/us-east4/subnetworks/sb-prj-cti-na-gke-286e-usea4-002a-nod
+nodeConfig:
+  bootDiskKmsKey: ${kms_key_prj_tenant_1}
+  diskSizeGb: 100
+  diskType: pd-balanced
+  imageType: COS_CONTAINERD
+  labels:
+    cluster_name: gke-standard-cluster
+    node_pool: pool-01
+  loggingConfig:
+    variantConfig:
+      variant: DEFAULT
+  machineType: e2-medium
+  metadata:
+    cluster_name: gke-standard-cluster
+    disable-legacy-endpoints: 'true'
+    node_pool: pool-01
+  oauthScopes:
+  - https://www.googleapis.com/auth/cloud-platform
+  serviceAccount: ${service_account}
+  shieldedInstanceConfig:
+    enableIntegrityMonitoring: true
+    enableSecureBoot: true
+  tags:
+  - gke-gke-standard-cluster
+  - gke-gke-standard-cluster-pool-01
+  windowsNodeConfig: {}
+  workloadMetadataConfig:
+    mode: GKE_METADATA
+nodePoolDefaults:
+  nodeConfigDefaults:
+    gcfsConfig: {}
+    loggingConfig:
+      variantConfig:
+        variant: DEFAULT
+nodePools:
+- autoscaling:
+    enabled: true
+    locationPolicy: BALANCED
+    maxNodeCount: 1
+    minNodeCount: 1
+  config:
+    bootDiskKmsKey: projects/prj-cti-na-gke-286e/locations/us-east4/keyRings/kms-se-prj-cti-na-gke-286e-ap-ionf/cryptoKeys/kms-se-prj-cti-na-gke-286e-ap-ionf
+    diskSizeGb: 100
+    diskType: pd-standard
+    imageType: COS_CONTAINERD
+    labels:
+      cluster_name: gke-standard-cluster
+      node_pool: pool-01
+    loggingConfig:
+      variantConfig:
+        variant: DEFAULT
+    machineType: e2-medium
+    metadata:
+      cluster_name: gke-standard-cluster
+      disable-legacy-endpoints: 'true'
+      node_pool: pool-01
+    oauthScopes:
+    - https://www.googleapis.com/auth/cloud-platform
+    serviceAccount: ${service_account}
+    shieldedInstanceConfig:
+      enableIntegrityMonitoring: true
+      enableSecureBoot: true
+    tags:
+    - gke-gke-standard-cluster
+    - gke-gke-standard-cluster-pool-01
+    windowsNodeConfig: {}
+    workloadMetadataConfig:
+      mode: GKE_METADATA
+  etag: 3980f84c-093c-4fc9-98e7-dde230e4d2fd
+  instanceGroupUrls:
+  - https://www.googleapis.com/compute/v1/projects/prj-cti-na-gke-286e/zones/us-east4-a/instanceGroupManagers/gke-gke-standard-cluster-pool-01-a35b577c-grp
+  - https://www.googleapis.com/compute/v1/projects/prj-cti-na-gke-286e/zones/us-east4-b/instanceGroupManagers/gke-gke-standard-cluster-pool-01-ded33ba6-grp
+  - https://www.googleapis.com/compute/v1/projects/prj-cti-na-gke-286e/zones/us-east4-c/instanceGroupManagers/gke-gke-standard-cluster-pool-01-2752c63c-grp
+  locations:
+  - us-east4-a
+  - us-east4-b
+  - us-east4-c
+  management:
+    autoRepair: true
+    autoUpgrade: true
+  maxPodsConstraint:
+    maxPodsPerNode: '12'
+  name: pool-01
+  networkConfig:
+    enablePrivateNodes: true
+    podIpv4CidrBlock: 240.0.96.0/19
+    podRange: sb-prj-cti-na-gke-286e-usea4-002a-pod
+  podIpv4CidrSize: 27
+  selfLink: https://container.googleapis.com/v1/projects/prj-cti-na-gke-286e/locations/us-east4/clusters/gke-standard-cluster/nodePools/pool-01
+  status: RUNNING
+  upgradeSettings:
+    maxSurge: 1
+    strategy: SURGE
+  version: 1.29.7-gke.1104000
+notificationConfig:
+  pubsub: {}
+privateClusterConfig:
+  enablePrivateNodes: true
+  masterIpv4CidrBlock: 100.88.5.160/28
+  privateEndpoint: 100.88.5.162
+  publicEndpoint: 34.48.165.199
+rbacBindingConfig:
+  enableInsecureBindingSystemAuthenticated: true
+  enableInsecureBindingSystemUnauthenticated: true
+releaseChannel:
+  channel: REGULAR
+securityPostureConfig:
+  mode: DISABLED
+  vulnerabilityMode: VULNERABILITY_DISABLED
+selfLink: https://container.googleapis.com/v1/projects/prj-cti-na-gke-286e/locations/us-east4/clusters/gke-standard-cluster
+servicesIpv4Cidr: 240.0.40.0/22
+shieldedNodes:
+  enabled: true
+status: RUNNING
+subnetwork: tenant-gke-standard-0
+verticalPodAutoscaling: {}
+workloadIdentityConfig:
+  workloadPool: lab-gke-se.svc.id.goog
+zone: us-east4

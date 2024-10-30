@@ -1,0 +1,245 @@
+addonsConfig:
+  gcePersistentDiskCsiDriverConfig:
+    enabled: true
+  kubernetesDashboard:
+    disabled: true
+  networkPolicyConfig:
+    disabled: true
+autopilot: {}
+autoscaling:
+  autoscalingProfile: BALANCED
+binaryAuthorization: {}
+clusterIpv4Cidr: 240.4.64.0/19
+controlPlaneEndpointsConfig:
+  dnsEndpointConfig:
+    allowExternalTraffic: true
+    endpoint: gke-daa360139b57482ca2af51f37195ae637260-52991355109.us-east4.gke.goog
+  enhancedIngress:
+    endpoint: gke-daa360139b57482ca2af51f37195ae637260-52991355109.us-east4.gke.goog
+createTime: '2024-09-18T22:04:46+00:00'
+currentMasterVersion: 1.30.3-gke.1969001
+currentNodeVersion: 1.30.3-gke.1969001
+databaseEncryption:
+  currentState: CURRENT_STATE_ENCRYPTED
+  keyName: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
+  state: ENCRYPTED
+defaultMaxPodsConstraint:
+  maxPodsPerNode: '110'
+endpoint: 35.230.191.143
+enterpriseConfig:
+  clusterTier: STANDARD
+etag: ca54bb77-b2dc-47d8-a14d-58e6ac2d06f1
+id: daa360139b57482ca2af51f37195ae637260fc763b7944eabcd661806dbf43d4
+initialClusterVersion: 1.30.3-gke.1969001
+initialNodeCount: 1
+instanceGroupUrls:
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gke-standard-cluster-0-default-pool-52d128b0-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gke-standard-cluster-0-default-pool-77d13123-grp
+- https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gke-standard-cluster-0-default-pool-10374e08-grp
+ipAllocationPolicy:
+  clusterIpv4Cidr: 240.4.64.0/19
+  clusterIpv4CidrBlock: 240.4.64.0/19
+  clusterSecondaryRangeName: tenant-gke-pods
+  podCidrOverprovisionConfig: {}
+  servicesIpv4Cidr: 240.4.36.0/22
+  servicesIpv4CidrBlock: 240.4.36.0/22
+  servicesSecondaryRangeName: tenant-gke-services
+  stackType: IPV4
+  useIpAliases: true
+labelFingerprint: a9dc16a7
+legacyAbac: {}
+location: us-east4
+locations:
+- us-east4-a
+- us-east4-b
+- us-east4-c
+loggingConfig:
+  componentConfig:
+    enableComponents:
+    - SYSTEM_COMPONENTS
+    - WORKLOADS
+loggingService: logging.googleapis.com/kubernetes
+maintenancePolicy:
+  resourceVersion: ce912209
+  window:
+    dailyMaintenanceWindow:
+      duration: PT4H0M0S
+      startTime: 05:00
+masterAuth:
+  clientCertificateConfig: {}
+  clusterCaCertificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQU12a2Z3UkYvY2hIYjRkWVNkV2hTNUl3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa1pUTmlNbVUzWW1JdE5tVXlZeTAwWTJJMUxXSXlNalV0TTJFeE9EWXpObUl5TnpVMwpNQ0FYRFRJME1Ea3hPREl4TURRME5sb1lEekl3TlRRd09URXhNakl3TkRRMldqQXZNUzB3S3dZRFZRUURFeVJsCk0ySXlaVGRpWWkwMlpUSmpMVFJqWWpVdFlqSXlOUzB6WVRFNE5qTTJZakkzTlRjd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDeTd4b2srL1FVc2QvQ2NSZjlqUkJieXJDUjZlU3NMNzdvK0VlRwp2Y2tEaCtMSkl6K284M1hESjlEcjA1K0w3Tm5mOEYzemxKSnhNWm13RnIzYzduUW5oWmViNVhXcFF4ZXI3YWMzCnlxKzNER0VWV1cvejI1UU5JSkozZ044bmhMUWJicHlGSG4xeEdBRGZrVmVmekhGVGlJcWxjTkM3d1UxWENsUHcKTkdJMmZuSU5ESnFUYVl3ZVM3bi9Eb0hoa3kxMXNwNnVuMExHeWZuZDVaVThiM3F2K0FvL1ZZWWtBMWNqUWE1SwpxU1MzcGFURTQxYmpjeUhNT2h6bjl3anBrdWErZHF0TXptZTR2VS9GT2Qxa1YybWtRSlZIMDBYR2FKa1orY2gwCmFKS1Qrd0VSTXowM2NWR2p2Wk8zd2tYMTc4QzY4MndCNklLQUI2MDlmS09rV3BaMGJnRmVNTmJmcEROWTVhM0oKZG1lS2FxR0YycDErWGFNbVZhWndIVG55UE9MNUtXVWsvemJjY3RNcHZ3eTlSS212M3plc1IrWTZqZndPMDhwVgp2UGFxd0VUckZBNEVoSkFMNDBLRXcyaXpVVzVBUWhuVHJxeHEvSmNXN01TSHNvUTJyMG9KM25BSGZQVjNDa3V5ClNQZjJmSlpmZWUwWG5WeTNiNStldGxqdy9zOENBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGRkZNUFhiL3pGUXB0TlNucGRlc05iUWYwOUtSTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ2JDZWlWUUJKd2ZpUjdNMFA4OHd6cWw5Qlh5aTB0VXZ6cjBqOVRYSXF3CnFyR3dsYTNVeFhOU0hjZU8wSTRCSXZPZVJDUXFnbkE0UXdTdXpnZ0tQeGZXRzMybG5TUHNHYnRVVjlxUFZtOHoKNE9tYzZhenJsTmxYUFlrc0h0RHVtdm81dXRTanE1dG1VUzBGVTZuL3krbGpLU3NQYmVvUlhSMzAwejhpSG4ySAp1SU02L08vWjNDME44QkppUkRlNElEVXBMRFVxN3FxZ3BiYkNXWE1vL3dvOFB3N0Z4ZHBZN2lWZDQ1TnZaYmZRClFDb3diYzBmbHc0bUl2a0VIbDdobnJTT0JCeDBvcVZVd3pNRktEUWQ1emNxVEphNlBLeGNnZVZsNDdoVW1IdG8KdEZwTVJJQVhrNDd3TWpGTFlIQzA0aW9ybDJKSVdZQ2lhY3A3OUdyYmFkUEhCMENoOWQ1YzFKLy90MURUMXd5eApDQzlkZE4wUWdCUnNhWTZkNFo3S1hIaGM3alBXOFpCWTdMdWpnM0U4Z3VCbEEvY3NuR1RFQ2NMVkNPTTlJeGpSCnhSQ09NOXRCRStjNkV3dTRPelMwYmxrNEhiNytjeEN2TVJ1L3owZUgzdFZmZ3hrZ2M0T0lWVzFXVUJvYjFINmkKaXpXZzQydElzb0ZGZGNuOEdUdUErSW89Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+masterAuthorizedNetworksConfig:
+  cidrBlocks:
+  - cidrBlock: 217.8.23.33/32
+    displayName: Himanshu's Home
+  - cidrBlock: 10.10.2.0/24
+    displayName: vdi
+  - cidrBlock: 34.90.34.165/32
+    displayName: cloud shell (temp)
+  - cidrBlock: 176.26.156.96/32
+    displayName: Vino's Home
+  - cidrBlock: 161.124.14.0/24
+    displayName: pupi
+  - cidrBlock: 10.10.1.0/25
+    displayName: Bastion
+  - cidrBlock: 77.101.187.225/32
+    displayName: Dave's Home
+  enabled: true
+  gcpPublicCidrsAccessEnabled: false
+monitoringConfig:
+  advancedDatapathObservabilityConfig: {}
+  componentConfig:
+    enableComponents:
+    - SYSTEM_COMPONENTS
+  managedPrometheusConfig:
+    enabled: true
+monitoringService: monitoring.googleapis.com/kubernetes
+name: standard-cluster-0
+network: dev-network
+networkConfig:
+  defaultSnatStatus: {}
+  network: projects/lab-gke-se/global/networks/dev-network
+  serviceExternalIpsConfig: {}
+  subnetwork: projects/lab-gke-se/regions/us-east4/subnetworks/tenant-gke-standard-0
+# nodeConfig:
+#   bootDiskKmsKey: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
+#   diskSizeGb: 100
+#   diskType: pd-balanced
+#   imageType: COS_CONTAINERD
+#   loggingConfig: {}
+#   machineType: e2-medium
+#   metadata:
+#     cluster_name: gke-standard-cluster
+#     disable-legacy-endpoints: 'true'
+#     node_pool: pool-01
+#   oauthScopes:
+#   - https://www.googleapis.com/auth/cloud-platform
+#   serviceAccount: gke-cluster@lab-gke-se.iam.gserviceaccount.com
+#   shieldedInstanceConfig:
+#     enableIntegrityMonitoring: true
+#     enableSecureBoot: true
+#   windowsNodeConfig: {}
+#   workloadMetadataConfig:
+#     mode: GKE_METADATA
+nodePoolDefaults:
+  nodeConfigDefaults:
+    loggingConfig:
+      variantConfig:
+        variant: DEFAULT
+nodePools:
+- config:
+    bootDiskKmsKey: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
+    diskSizeGb: 100
+    diskType: pd-balanced
+    imageType: COS_CONTAINERD
+    loggingConfig: {}
+    machineType: e2-medium
+    metadata:
+      cluster_name: gke-standard-cluster
+      disable-legacy-endpoints: 'true'
+      node_pool: pool-01
+    oauthScopes:
+    - https://www.googleapis.com/auth/cloud-platform
+    serviceAccount: gke-cluster@lab-gke-se.iam.gserviceaccount.com
+    shieldedInstanceConfig:
+      enableIntegrityMonitoring: true
+      enableSecureBoot: true
+    windowsNodeConfig: {}
+    workloadMetadataConfig:
+      mode: GKE_METADATA
+  etag: c3012c1f-531b-43e7-955b-45c8239d3c13
+  instanceGroupUrls:
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gke-standard-cluster-0-default-pool-52d128b0-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gke-standard-cluster-0-default-pool-77d13123-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gke-standard-cluster-0-default-pool-10374e08-grp
+  locations:
+  - us-east4-a
+  - us-east4-b
+  - us-east4-c
+  management:
+    autoRepair: true
+    autoUpgrade: true
+  maxPodsConstraint:
+    maxPodsPerNode: '110'
+  name: application-pool-01
+  networkConfig:
+    enablePrivateNodes: true
+    podIpv4CidrBlock: 240.4.64.0/19
+    podRange: tenant-gke-pods
+  podIpv4CidrSize: 24
+  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/standard-cluster-0/nodePools/default-pool
+  status: RUNNING
+  upgradeSettings:
+    maxSurge: 1
+    strategy: SURGE
+  version: 1.30.3-gke.1969001
+- config:
+    bootDiskKmsKey: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
+    diskSizeGb: 100
+    diskType: pd-balanced
+    imageType: COS_CONTAINERD
+    loggingConfig: {}
+    machineType: e2-medium
+    metadata:
+      cluster_name: gke-standard-cluster
+      disable-legacy-endpoints: 'true'
+      node_pool: pool-01
+    oauthScopes:
+    - https://www.googleapis.com/auth/cloud-platform
+    serviceAccount: gke-cluster@lab-gke-se.iam.gserviceaccount.com
+    shieldedInstanceConfig:
+      enableIntegrityMonitoring: true
+      enableSecureBoot: true
+    windowsNodeConfig: {}
+    workloadMetadataConfig:
+      mode: GKE_METADATA
+  etag: c3012c1f-531b-43e7-955b-45c8239d3c13
+  instanceGroupUrls:
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-a/instanceGroupManagers/gke-standard-cluster-0-default-pool-52d128b0-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-b/instanceGroupManagers/gke-standard-cluster-0-default-pool-77d13123-grp
+  - https://www.googleapis.com/compute/v1/projects/lab-gke-se/zones/us-east4-c/instanceGroupManagers/gke-standard-cluster-0-default-pool-10374e08-grp
+  locations:
+  - us-east4-a
+  - us-east4-b
+  - us-east4-c
+  management:
+    autoRepair: true
+    autoUpgrade: true
+  maxPodsConstraint:
+    maxPodsPerNode: '110'
+  name: platform-pool-01
+  networkConfig:
+    enablePrivateNodes: true
+    podIpv4CidrBlock: 240.4.64.0/19
+    podRange: tenant-gke-pods
+  podIpv4CidrSize: 24
+  selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/standard-cluster-0/nodePools/default-pool
+  status: RUNNING
+  upgradeSettings:
+    maxSurge: 1
+    strategy: SURGE
+  version: 1.30.3-gke.1969001
+notificationConfig:
+  pubsub: {}
+privateClusterConfig:
+  enablePrivateNodes: true
+  masterIpv4CidrBlock: 100.88.5.160/28
+  privateEndpoint: 100.88.5.162
+  publicEndpoint: 35.230.191.143
+rbacBindingConfig:
+  enableInsecureBindingSystemAuthenticated: true
+  enableInsecureBindingSystemUnauthenticated: true
+releaseChannel:
+  channel: REGULAR
+securityPostureConfig:
+  mode: DISABLED
+  vulnerabilityMode: VULNERABILITY_DISABLED
+selfLink: https://container.googleapis.com/v1/projects/lab-gke-se/locations/us-east4/clusters/standard-cluster-0
+servicesIpv4Cidr: 240.4.36.0/22
+shieldedNodes:
+  enabled: true
+status: RUNNING
+subnetwork: tenant-gke-standard-0
+workloadIdentityConfig:
+  workloadPool: lab-gke-se.svc.id.goog
+zone: us-east4
