@@ -9,8 +9,8 @@ locals {
 
 module "cluster" {
   for_each = local.config.clusters
-  # source   = "github.com/lab-gke-se/modules//container/cluster?ref=0.0.4"
-  source = "../modules//container/cluster"
+  source   = "github.com/lab-gke-se/modules//container/cluster?ref=0.0.4"
+  # source = "../modules//container/cluster"
 
   # Terraform variables
   project                  = local.projects.prj_dev_tenant_1.project_id
