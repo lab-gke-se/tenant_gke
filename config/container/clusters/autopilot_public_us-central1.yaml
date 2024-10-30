@@ -82,6 +82,8 @@ masterAuthorizedNetworksConfig:
     displayName: Vino's Home
   - cidrBlock: 34.90.34.165/32
     displayName: cloud shell (temp)
+  - cidrBlock: 192.193.115.4/32
+    displayName: Ashish-Office
   enabled: true
   gcpPublicCidrsAccessEnabled: false
 
@@ -129,10 +131,10 @@ nodeConfig:
   shieldedInstanceConfig:
     enableIntegrityMonitoring: true
     enableSecureBoot: true
-  taints:
-  - effect: NO_SCHEDULE
-    key: cloud.google.com/gke-quick-remove
-    value: 'true'
+  # taints:
+  # - effect: NO_SCHEDULE
+  #   key: cloud.google.com/gke-quick-remove
+  #   value: 'true'
   gvnic:
     enabled: true
   windowsNodeConfig: {}

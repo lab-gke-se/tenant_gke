@@ -152,6 +152,8 @@ networkConfig:
   serviceExternalIpsConfig: {}
   subnetwork: projects/lab-gke-se/regions/us-east4/subnetworks/tenant-gke-1
 nodeConfig:
+  gvnic:
+    enabled: true
   bootDiskKmsKey: projects/lab-gke-se/locations/us-east4/keyRings/LAB-GKE-SE-gke-key-ring-uudp/cryptoKeys/LAB-GKE-SE-gke-key
   diskSizeGb: 100
   diskType: pd-balanced
@@ -168,10 +170,10 @@ nodeConfig:
   shieldedInstanceConfig:
     enableIntegrityMonitoring: true
     enableSecureBoot: true
-  taints:
-  - effect: NO_SCHEDULE
-    key: cloud.google.com/gke-quick-remove
-    value: 'true'
+  # taints:
+  # - effect: NO_SCHEDULE
+  #   key: cloud.google.com/gke-quick-remove
+  #   value: 'true'
   windowsNodeConfig: {}
   workloadMetadataConfig:
     mode: GKE_METADATA

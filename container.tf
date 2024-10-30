@@ -8,15 +8,15 @@ locals {
 }
 
 module "cluster" {
-  for_each = local.cluster_configs
-  source   = "github.com/lab-gke-se/modules//gke/cluster?ref=0.0.3"
-  # source = "../modules/gke/cluster"
+  for_each = local.config.clusters
+  source   = "github.com/lab-gke-se/modules//container/cluster?ref=0.0.4"
+  # source = "../modules//container/cluster"
 
   # Terraform variables
   project                  = local.projects.prj_dev_tenant_1.project_id
   deletion_protection      = local.deletion_protection
   remove_default_node_pool = true
-  # timeouts            = local.timeouts
+  timeouts                 = local.timeouts
 
   # GKE Variables
   name                      = each.value.name
@@ -72,7 +72,7 @@ module "cluster" {
 
 locals {
   cluster_node_pools = flatten([
-    for cluster_key, cluster in local.cluster_configs : [
+    for cluster_key, cluster in local.config.clusters : [
       for nodePool in try(cluster.nodePools, []) : [
         merge({
           cluster_key      = try(cluster_key, null)
@@ -87,8 +87,7 @@ locals {
 
 module "node_pool" {
   for_each = { for cluster_node_pool in local.cluster_node_pools : "${cluster_node_pool.cluster_key}/${cluster_node_pool.name}" => cluster_node_pool }
-  source   = "github.com/lab-gke-se/modules//gke/node_pool?ref=0.0.3"
-  # source   = "../modules/gke/node_pool"
+  source   = "github.com/lab-gke-se/modules//container/node_pool?ref=0.0.4"
 
   # Terraform / cluster variables
   project  = local.projects.prj_dev_tenant_1.project_id
@@ -111,27 +110,22 @@ module "node_pool" {
   bestEffortProvisioning = try(each.value.bestEffortProvisioning, null)
 }
 
+moved {
+  from = module.cluster["autopilot_public_us-central1"].google_container_cluster.primary
+  to   = module.cluster["autopilot_public_us-central1"].google_container_cluster.cluster
+}
 
+moved {
+  from = module.cluster["private"].google_container_cluster.primary
+  to   = module.cluster["private"].google_container_cluster.cluster
+}
 
-# Temporary until containerd supported by terraform
-# resource "local_file" "containerd_config" {
-#   for_each = { for name, config in local.cluster_configs : name => config if try(config.nodePoolDefaults.nodeConfigDefaults.containerdConfig.privateRegistryAccessConfig, null) != null }
+moved {
+  from = module.cluster["private_1"].google_container_cluster.primary
+  to   = module.cluster["private_1"].google_container_cluster.cluster
+}
 
-#   content  = yamlencode(each.value.nodePoolDefaults.nodeConfigDefaults.containerdConfig)
-#   filename = "${path.module}/config/clusters/containerd-config/${each.value.name}.yaml"
-# }
-
-# resource "null_resource" "run_command" {
-#   for_each = { for name, config in local.cluster_configs : name => config if try(config.nodePoolDefaults.nodeConfigDefaults.containerdConfig.privateRegistryAccessConfig, null) != null }
-
-#   depends_on = [module.cluster]
-
-#   provisioner "local-exec" {
-#     when    = create
-#     command = <<-EOT
-#       gcloud container clusters update ${each.value.name} --location=${each.value.location} --containerd-config-from-file="${local_file.containerd_config[each.key].filename}"    
-#     EOT
-#   }
-
-# }
-
+moved {
+  from = module.cluster["public"].google_container_cluster.primary
+  to   = module.cluster["public"].google_container_cluster.cluster
+}

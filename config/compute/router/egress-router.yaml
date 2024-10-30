@@ -1,0 +1,8 @@
+creationTimestamp: '2024-06-03T10:51:22.375-07:00'
+encryptedInterconnectRouter: false
+id: '6514016415198198901'
+kind: compute#router
+name: egress-router
+network: https://www.googleapis.com/compute/v1/projects/lab-gke-se/global/networks/dev-network
+region: https://www.googleapis.com/compute/v1/projects/lab-gke-se/regions/us-east4
+selfLink: https://www.googleapis.com/compute/v1/projects/lab-gke-se/regions/us-east4/routers/egress-router
